@@ -1,11 +1,49 @@
 #include "PhoneBook.hpp"
 
+std::string	check_width(std::string string) {
+	std::string	sub;
+
+	sub = string;
+	if (string.length() > 10) {
+		sub = string.substr(0, 9);
+		sub.replace(9, 1, 1, '.');
+	}
+	return sub;
+}
+
+void	_display(PhoneBook myPhoneBook, int index) {
+	std::cout << "|";
+	std::cout << std::setw(10) << index + 1 << "|";
+	std::cout << std::setw(10) << check_width(myPhoneBook.get_contact(index % 8).get_field("first_name")) << "|";
+	std::cout << std::setw(10) << check_width(myPhoneBook.get_contact(index % 8).get_field("last_name")) << "|";
+	std::cout << std::setw(10) << check_width(myPhoneBook.get_contact(index % 8).get_field("nickname")) << "|";
+	std::cout << std::endl;
+}
+
+void	display_fields(PhoneBook myPhoneBook, int index) {
+	std::cout << myPhoneBook.get_contact(index % 8).get_field("first_name") << std::endl;
+	std::cout << myPhoneBook.get_contact(index % 8).get_field("last_name") << std::endl;
+	std::cout << myPhoneBook.get_contact(index % 8).get_field("nickname") << std::endl;
+	std::cout << myPhoneBook.get_contact(index % 8).get_field("phone") << std::endl;
+	std::cout << myPhoneBook.get_contact(index % 8).get_field("secret") << std::endl;
+}
+
+void	display_columns(PhoneBook myPhoneBook) {
+	for (int i = 0; i < 8; i++)
+	{
+		if (myPhoneBook.get_contact(i).get_field("first_name").empty())
+			break;
+		else
+			_display(myPhoneBook, i);
+	}
+}
+
 void	PhoneBook::set_contact(Contact contact, int index) {
-	contacts[index] = contact;
+	contacts[index % 8] = contact;
 }
 
 Contact	PhoneBook::get_contact(int index) {
-	return contacts[index];
+	return contacts[index % 8];
 }
 
 int	check_fields(std::string fields[5]) {
@@ -16,7 +54,7 @@ int	check_fields(std::string fields[5]) {
 	return 0;
 }
 
-void	fill_contact(Contact contact, std::string fields[5]) {
+void	fill_contact(Contact &contact, std::string fields[5]) {
 	for (int i = 0 ; i < 5 ; i++) {
 		if (i == 0)
 			contact.set_field("first_name", fields[i]);
@@ -31,7 +69,8 @@ void	fill_contact(Contact contact, std::string fields[5]) {
 	}
 }
 
-void	ADD(int *index, PhoneBook myPhoneBook) {
+
+void	ADD(int *index, PhoneBook &myPhoneBook) {
 	Contact	contact;
 	std::string fields[5];
 	std::string	field;
@@ -45,17 +84,28 @@ void	ADD(int *index, PhoneBook myPhoneBook) {
 		return;
 	fill_contact(contact, fields);
 	myPhoneBook.set_contact(contact, *index);
-	index++;
+	(*index)++;
 }
 
-void	SEARCH(int index) {
-	(void)index;
-	std::cout << "SERACH" << std::endl;	
+void	SEARCH(PhoneBook myPhoneBook) {
+	std::string in;
+	display_columns(myPhoneBook);
+	std::cout << "Enter index from 0 to 7: ";
+	std::getline(std::cin, in);
+	if (std::stoi(in) >= 0 && std::stoi(in) <= 7) {
+		if (!myPhoneBook.get_contact(std::stoi(in)).get_field("first_name").empty())
+			display_fields(myPhoneBook ,std::stoi(in));
+		else
+			std::cout << "Empty Contact" << std::endl;
+	}
+	else
+		std::cout << "Out of range index" << std::endl;
 }
 
 int	main() {
-	std::string	command;
 	PhoneBook	myPhoneBook;
+	std::string	command;
+	std::string	in;
 	int			index = 0;
 
 	std::cout << "Enter command: ";
@@ -64,7 +114,7 @@ int	main() {
 		if (command == "ADD") {
 			ADD(&index, myPhoneBook);
 		} else if (command == "SEARCH") {
-			std::cout << myPhoneBook.get_contact(0).get_field("nickname") << std::endl;
+			SEARCH(myPhoneBook);
 		}
 		else
 			std::cout << "please enter a valid command" << std::endl;
