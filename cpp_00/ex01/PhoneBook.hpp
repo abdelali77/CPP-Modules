@@ -1,17 +1,21 @@
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef __PHONEBOOK_HPP__
+#define __PHONEBOOK_HPP__
 
 #include <iostream>
 #include <iomanip>
 #include <string>
 #include "Contact.hpp"
 
-class	PhoneBook {
-	private:
-		Contact contacts[8];
-	public:
-		void	set_contact(Contact contact, int index);
-		Contact	get_contact(int index);
+// ************************************************************************** //
+//                             PhoneBook Class                                //
+// ************************************************************************** //
+
+class PhoneBook {
+private:
+	Contact contacts[8];
+public:
+	void	set_contact( Contact contact, int index );
+	Contact	get_contact( int index );
 };
 
 #endif
