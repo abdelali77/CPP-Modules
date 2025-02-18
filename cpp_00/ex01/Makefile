@@ -5,7 +5,8 @@ GREEN=\033[0;32m
 YELLOW=\033[0;33m
 NC=\033[0m
 
-SRC = PhoneBook.cpp \
+SRC = main.cpp \
+	  PhoneBook.cpp \
 	  Contact.cpp
 HDR1 = Contact.hpp
 HDR2 = PhoneBook.hpp

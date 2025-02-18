@@ -18,4 +18,7 @@ public:
 	Contact	get_contact( int index );
 };
 
+void	ADD(int *index, PhoneBook &myPhoneBook);
+void	SEARCH(PhoneBook myPhoneBook);
+
 #endif

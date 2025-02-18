@@ -1,5 +1,16 @@
 #include "PhoneBook.hpp"
 
+void	print_columns() {
+	std::cout << " ___________________________________________ " << std::endl;
+	std::cout << "|";
+	std::cout << std::setw(10) << "index" << "|";
+	std::cout << std::setw(10) << "first name" << "|";
+	std::cout << std::setw(10) << "last name" << "|";
+	std::cout << std::setw(10) << "nickname" << "|";
+	std::cout << std::endl;
+	std::cout << " ___________________________________________ " << std::endl;
+}
+
 std::string	check_width(std::string string) {
 	std::string	sub;
 
@@ -18,6 +29,7 @@ void	_display(PhoneBook myPhoneBook, int index) {
 	std::cout << std::setw(10) << check_width(myPhoneBook.get_contact(index % 8).get_field("last_name")) << "|";
 	std::cout << std::setw(10) << check_width(myPhoneBook.get_contact(index % 8).get_field("nickname")) << "|";
 	std::cout << std::endl;
+	std::cout << " ___________________________________________ " << std::endl;
 }
 
 void	display_fields(PhoneBook myPhoneBook, int index) {
@@ -76,9 +88,20 @@ void	ADD(int *index, PhoneBook &myPhoneBook) {
 	std::string	field;
 
 	for (int i = 0 ; i < 5 ; i++) {
-		std::cout << "Enter field: ";
-		std::getline(std::cin, field);
-		fields[i] = field;
+		if (i == 0)
+			std::cout << "Enter first name: ";
+		else if (i == 1)
+			std::cout << "Enter last name: ";
+		else if (i == 2)
+			std::cout << "Enter nickname: ";
+		else if (i == 3)
+			std::cout << "Enter phone number: ";
+		else if (i == 4)
+			std::cout << "Enter darkest secret: ";
+		if (std::getline(std::cin, field))
+			fields[i] = field;
+		else
+			exit(1);
 	}
 	if (check_fields(fields))
 		return;
@@ -89,6 +112,7 @@ void	ADD(int *index, PhoneBook &myPhoneBook) {
 
 void	SEARCH(PhoneBook myPhoneBook) {
 	std::string in;
+	print_columns();
 	display_columns(myPhoneBook);
 	std::cout << "Enter index from 0 to 7: ";
 	std::getline(std::cin, in);
@@ -102,24 +126,3 @@ void	SEARCH(PhoneBook myPhoneBook) {
 		std::cout << "Out of range index" << std::endl;
 }
 
-int	main() {
-	PhoneBook	myPhoneBook;
-	std::string	command;
-	std::string	in;
-	int			index = 0;
-
-	std::cout << "Enter command: ";
-	std::getline(std::cin, command);
-	while (command != "EXIT") {
-		if (command == "ADD") {
-			ADD(&index, myPhoneBook);
-		} else if (command == "SEARCH") {
-			SEARCH(myPhoneBook);
-		}
-		else
-			std::cout << "please enter a valid command" << std::endl;
-		std::cout << "Enter command: ";
-		std::getline(std::cin, command);
-	}
-	return 0;
-}
