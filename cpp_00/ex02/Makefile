@@ -7,9 +7,10 @@ NC=\033[0m
 
 SRC = Account.cpp \
 	  tests.cpp
+HDR = Account.hpp
 OBJ = $(SRC:.cpp=.o)
 
-%.o: %.cpp
+%.o: %.cpp $(HDR)
 	@echo "$(GREEN)$<...$(NC)"
 	@$(CC) $(FLAGS) -c $< -o $@
 

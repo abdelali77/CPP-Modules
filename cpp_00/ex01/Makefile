@@ -7,9 +7,11 @@ NC=\033[0m
 
 SRC = PhoneBook.cpp \
 	  Contact.cpp
+HDR1 = Contact.hpp
+HDR2 = PhoneBook.hpp
 OBJ = $(SRC:.cpp=.o)
 
-%.o: %.cpp
+%.o: %.cpp $(HDR1) $(HDR2)
 	@echo "$(GREEN)$<...$(NC)"
 	@$(CC) $(FLAGS) -c $< -o $@
 
