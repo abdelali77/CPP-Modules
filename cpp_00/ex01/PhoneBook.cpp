@@ -114,11 +114,11 @@ void	SEARCH(PhoneBook myPhoneBook) {
 	std::string in;
 	print_columns();
 	display_columns(myPhoneBook);
-	std::cout << "Enter index from 0 to 7: ";
+	std::cout << "Enter index from 1 to 8: ";
 	std::getline(std::cin, in);
-	if (std::stoi(in) >= 0 && std::stoi(in) <= 7) {
-		if (!myPhoneBook.get_contact(std::stoi(in)).get_field("first_name").empty())
-			display_fields(myPhoneBook ,std::stoi(in));
+	if (std::stoi(in) >= 1 && std::stoi(in) <= 8) {
+		if (!myPhoneBook.get_contact(std::stoi(in) - 1).get_field("first_name").empty())
+			display_fields(myPhoneBook ,std::stoi(in) - 1);
 		else
 			std::cout << "Empty Contact" << std::endl;
 	}
