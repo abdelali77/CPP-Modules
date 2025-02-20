@@ -82,7 +82,7 @@ void	fill_contact(Contact &contact, std::string fields[5]) {
 }
 
 
-void	ADD(int *index, PhoneBook &myPhoneBook) {
+void	_add(int *index, PhoneBook &myPhoneBook) {
 	Contact	contact;
 	std::string fields[5];
 	std::string	field;
@@ -110,7 +110,7 @@ void	ADD(int *index, PhoneBook &myPhoneBook) {
 	(*index)++;
 }
 
-void	SEARCH(PhoneBook myPhoneBook) {
+void	_search(PhoneBook myPhoneBook) {
 	std::string in;
 	print_columns();
 	display_columns(myPhoneBook);

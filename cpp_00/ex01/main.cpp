@@ -8,9 +8,9 @@ int	main() {
 	std::cout << "Enter command: ";
 	while (std::getline(std::cin, command)) {
 		if (command == "ADD") {
-			ADD(&index, myPhoneBook);
+			_add(&index, myPhoneBook);
 		} else if (command == "SEARCH") {
-			SEARCH(myPhoneBook);
+			_search(myPhoneBook);
 		} else if (command == "EXIT")
 			return 0;
 		else
