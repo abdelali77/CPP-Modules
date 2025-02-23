@@ -23,12 +23,9 @@ void	Harl::complain( std::string level ) {
 
 	switch (index)
 	{
-	case 0: (this->*ptr[0])(); (this->*ptr[1])(); (this->*ptr[2])(); (this->*ptr[3])();
-		break;
-	case 1: (this->*ptr[1])(); (this->*ptr[2])(); (this->*ptr[3])();
-		break;
-	case 2: (this->*ptr[2])(); (this->*ptr[3])();
-		break;
+	case 0: (this->*ptr[0])();
+	case 1: (this->*ptr[1])();
+	case 2: (this->*ptr[2])();
 	case 3: (this->*ptr[3])();
 		break;
 
