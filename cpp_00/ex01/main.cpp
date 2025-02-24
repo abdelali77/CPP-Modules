@@ -8,7 +8,7 @@ int	main() {
 	std::cout << "Enter command: ";
 	while (std::getline(std::cin, command)) {
 		if (command == "ADD") {
-			_add(&index, myPhoneBook);
+			myPhoneBook = _add(&index);
 		} else if (command == "SEARCH") {
 			_search(myPhoneBook);
 		} else if (command == "EXIT")

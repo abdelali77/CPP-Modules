@@ -81,11 +81,11 @@ void	fill_contact(Contact &contact, std::string fields[5]) {
 	}
 }
 
-
-void	_add(int *index, PhoneBook &myPhoneBook) {
+PhoneBook	_add(int *index) {
 	Contact	contact;
 	std::string fields[5];
 	std::string	field;
+	static PhoneBook myPhoneBook;
 
 	for (int i = 0 ; i < 5 ; i++) {
 		if (i == 0)
@@ -104,10 +104,11 @@ void	_add(int *index, PhoneBook &myPhoneBook) {
 			exit(1);
 	}
 	if (check_fields(fields))
-		return;
+		return myPhoneBook;
 	fill_contact(contact, fields);
 	myPhoneBook.set_contact(contact, *index);
 	(*index)++;
+	return myPhoneBook;
 }
 
 void	_search(PhoneBook myPhoneBook) {
@@ -116,7 +117,7 @@ void	_search(PhoneBook myPhoneBook) {
 	display_columns(myPhoneBook);
 	std::cout << "Enter index from 1 to 8: ";
 	std::getline(std::cin, in);
-	if (std::stoi(in) >= 1 && std::stoi(in) <= 8) {
+	if (atoi(in.c_str()) >= 1 && atoi(in.c_str()) <= 8) {
 		if (!myPhoneBook.get_contact(std::stoi(in) - 1).get_field("first_name").empty())
 			display_fields(myPhoneBook ,std::stoi(in) - 1);
 		else
