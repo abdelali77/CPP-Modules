@@ -58,21 +58,6 @@ int	check_fields(std::string fields[5]) {
 	return 0;
 }
 
-void	fill_contact(Contact contact, std::string fields[5]) {
-	for (int i = 0 ; i < 5 ; i++) {
-		if (i == 0)
-			contact.set_field("first_name", fields[i]);
-		else if (i == 1)
-			contact.set_field("last_name", fields[i]);
-		else if (i == 2)
-			contact.set_field("nickname", fields[i]);
-		else if (i == 3)
-			contact.set_field("phone", fields[i]);
-		else if (i == 4)
-			contact.set_field("secret", fields[i]);
-	}
-}
-
 void	PhoneBook::add( void ) {
 	Contact	contact;
 	std::string fields[5];
