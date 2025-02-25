@@ -29,7 +29,7 @@ void	Account::_displayTimestamp( void ) {
 
 	time(&timer);
 	t = localtime(&timer);
-	std::strftime(timestamp, 100, "[%Y%m%d_%H%M%S] ", t);
+	strftime(timestamp, 100, "[%Y%m%d_%H%M%S] ", t);
 	std::cout << timestamp;
 }
 
