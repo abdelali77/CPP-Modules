@@ -104,8 +104,8 @@ void	PhoneBook::search( void ) {
 	std::cout << "Enter index from 1 to 8: ";
 	std::getline(std::cin, in);
 	if (atoi(in.c_str()) >= 1 && atoi(in.c_str()) <= 8) {
-		if (!contacts[std::atoi(in.c_str()) - 1].get_field("first_name").empty())
-			display_fields(contacts ,std::atoi(in.c_str()) - 1);
+		if (!contacts[atoi(in.c_str()) - 1].get_field("first_name").empty())
+			display_fields(contacts ,atoi(in.c_str()) - 1);
 		else
 			std::cout << "Empty Contact" << std::endl;
 	}
