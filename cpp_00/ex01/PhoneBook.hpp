@@ -18,7 +18,4 @@ public:
 	void	search( void );
 };
 
-// PhoneBook	_add(int *index);
-// void		_search(PhoneBook myPhoneBook);
-
 #endif
