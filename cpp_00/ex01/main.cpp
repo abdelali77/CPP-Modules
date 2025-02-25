@@ -3,14 +3,13 @@
 int	main() {
 	PhoneBook	myPhoneBook;
 	std::string	command;
-	int			index = 0;
 
 	std::cout << "Enter command ADD or SEARCH or EXIT: ";
 	while (std::getline(std::cin, command)) {
 		if (command == "ADD") {
-			myPhoneBook = _add(&index);
+			myPhoneBook.add();
 		} else if (command == "SEARCH") {
-			_search(myPhoneBook);
+			myPhoneBook.search();
 		} else if (command == "EXIT")
 			return 0;
 		else
