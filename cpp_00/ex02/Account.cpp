@@ -24,7 +24,7 @@ int	Account::getNbWithdrawals( void ) {
 
 void	Account::_displayTimestamp( void ) {
 	time_t	timer;
-	struct tm	*t;
+	tm	*t;
 	char	timestamp[100];
 
 	time(&timer);
