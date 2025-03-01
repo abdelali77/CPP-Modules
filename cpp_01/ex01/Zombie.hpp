@@ -13,7 +13,8 @@ private:
 	std::string name;
 public:
 	void	announce( void );
-	void	set_name( std::string _name );
+	void	set_name( std::string name );
+	Zombie( void );
 	~Zombie( void );
 };
 

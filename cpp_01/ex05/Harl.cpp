@@ -21,20 +21,18 @@ void	Harl::complain( std::string level ) {
 		&Harl::error
 	};
 
-	switch (index)
-	{
-	case 0: (this->*ptr[0])();
-		break;
-	case 1: (this->*ptr[1])();
-		break;
-	case 2: (this->*ptr[2])();
-		break;
-	case 3: (this->*ptr[3])();
-		break;
-
-	default:
-		std::cout << "Invalid Level" << std::endl;
-		break;
+	switch (index) {
+		case 0: (this->*ptr[0])();
+			break;
+		case 1: (this->*ptr[1])();
+			break;
+		case 2: (this->*ptr[2])();
+			break;
+		case 3: (this->*ptr[3])();
+			break;
+		default:
+			std::cout << "Invalid Level" << std::endl;
+			break;
 	}
 }
 

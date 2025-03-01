@@ -6,3 +6,5 @@ void	HumanA::attack( void ) {
 
 HumanA::HumanA( std::string name, Weapon &weapon ) : name(name), weapon(weapon) {
 }
+
+HumanA::~HumanA( void ) {}

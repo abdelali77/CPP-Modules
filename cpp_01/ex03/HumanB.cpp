@@ -10,3 +10,5 @@ void	HumanB::setWeapon( Weapon &weapon ) {
 
 HumanB::HumanB( std::string name ) : name(name) {
 }
+
+HumanB::~HumanB( void ) {}

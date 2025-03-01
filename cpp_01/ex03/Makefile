@@ -11,13 +11,11 @@ SRC = main.cpp \
 	  HumanA.cpp \
 	  HumanB.cpp
 
-HDR = Weapon.hpp
-HDR1 = HumanA.hpp
-HDR2 = HumanB.hpp
+HDRS = Weapon.hpp HumanA.hpp HumanB.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
-%.o: %.cpp $(HDR) $(HDR1) $(HDR2)
+%.o: %.cpp $(HDRS)
 	@echo "$(GREEN)$<...$(NC)"
 	@$(CC) $(FLAGS) -c $< -o $@
 
