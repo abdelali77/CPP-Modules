@@ -27,8 +27,7 @@ Fixed::Fixed( const float n ) {
 	fixedValue = roundf(n * (1 << fractional));
 }
 
-Fixed::Fixed( void ) {
-	fixedValue = 0;
+Fixed::Fixed( void ) : fixedValue(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
 
