@@ -11,8 +11,7 @@ int	Fixed::getRawBits( void ) const {
 	return fixedValue;
 }
 
-Fixed::Fixed( void ) {
-	fixedValue = 0;
+Fixed::Fixed( void ) : fixedValue(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
 
