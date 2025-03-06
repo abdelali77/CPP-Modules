@@ -17,14 +17,15 @@ public:
 	void setRawBits( int const raw );
 	float toFloat( void ) const;
 	int toInt( void ) const;
+
 	Fixed( const int n );
 	Fixed( const float n );
 	Fixed( void );
 	Fixed( const Fixed& fixed);
-	Fixed& operator=(const Fixed &fixed);
+	Fixed& operator=( const Fixed &fixed );
 	~Fixed();
 };
 
-std::ostream& operator<<(std::ostream& os, const Fixed &fixed);
+std::ostream& operator<<( std::ostream& os, const Fixed &fixed );
 
 #endif

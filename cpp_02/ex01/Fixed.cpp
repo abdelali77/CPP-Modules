@@ -31,19 +31,19 @@ Fixed::Fixed( void ) : fixedValue(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed( const Fixed& fixed) {
+Fixed::Fixed( const Fixed& fixed ) {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = fixed;
 }
 
-Fixed& Fixed::operator=(const Fixed &fixed) {
+Fixed& Fixed::operator=( const Fixed &fixed ) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &fixed)
 		fixedValue = fixed.fixedValue;
 	return *this;
 }
 
-std::ostream& operator<<(std::ostream& os, const Fixed &fixed) {
+std::ostream& operator<<( std::ostream& os, const Fixed &fixed ) {
 	os << fixed.toFloat();
 	return os;
 }
