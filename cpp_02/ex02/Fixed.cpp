@@ -61,11 +61,11 @@ bool Fixed::operator!=(const Fixed &fixed) const {
 }
 
 Fixed Fixed::operator+(const Fixed &fixed) {
-	return fixedValue + fixed.fixedValue;
+	return this->toFloat() + fixed.toFloat();
 }
 
 Fixed Fixed::operator-(const Fixed &fixed) {
-	return fixedValue - fixed.fixedValue;
+	return this->toFloat() - fixed.toFloat();
 }
 
 Fixed Fixed::operator*(const Fixed &fixed) {
