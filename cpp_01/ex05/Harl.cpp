@@ -54,6 +54,6 @@ void	Harl::error( void ) {
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-Harl::Harl(){}
+Harl::Harl( void ) { }
 
-Harl::~Harl(){}
+Harl::~Harl() { }
