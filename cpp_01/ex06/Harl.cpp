@@ -59,6 +59,6 @@ void	Harl::error( void ) {
 	std::cout << std::endl;
 }
 
-Harl::Harl(){}
+Harl::Harl( void ) { }
 
-Harl::~Harl(){}
+Harl::~Harl( void ) { }
