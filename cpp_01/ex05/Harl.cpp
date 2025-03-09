@@ -14,7 +14,7 @@ int	getIndex( std::string level ) {
 
 void	Harl::complain( std::string level ) {
 	int	index = getIndex( level );
-	void	(Harl::*ptr[])( void ) = {
+	void	(Harl::*ptr[4])( void ) = {
 		&Harl::debug,
 		&Harl::info,
 		&Harl::warning,
