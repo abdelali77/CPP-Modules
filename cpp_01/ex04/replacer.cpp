@@ -1,6 +1,6 @@
 #include "replacer.hpp"
 
-void	replaceString(std::string &s1, std::string &s2, char **av) {
+void	replaceString(std::string s1, std::string s2, char **av) {
 	std::ifstream    srcFile(av[1]);
 	if (srcFile.fail()) {
 		std::cerr << "Error opening file " << av[1] << std::endl;
@@ -18,7 +18,7 @@ void	replaceString(std::string &s1, std::string &s2, char **av) {
 			std::string tmp;
 			tmp = line.substr(i, s1.length());
 			if (tmp == s1) {
-				content += s2;
+				content.append(s2);
 				i += s1.length();
 			} else {
 				content += line[i];
