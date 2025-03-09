@@ -8,7 +8,6 @@ void	HumanB::setWeapon( Weapon &weapon ) {
 	this->weapon = &weapon;
 }
 
-HumanB::HumanB( std::string name ) : name(name) {
-}
+HumanB::HumanB( std::string name ) : name(name) { }
 
-HumanB::~HumanB( void ) {}
+HumanB::~HumanB() { }

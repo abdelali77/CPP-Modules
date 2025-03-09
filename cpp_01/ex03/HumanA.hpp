@@ -14,8 +14,9 @@ private:
 	Weapon		&weapon;
 public:
 	void	attack( void );
+
 	HumanA( std::string name, Weapon &weapon );
-	~HumanA( void );
+	~HumanA();
 };
 
 #endif
