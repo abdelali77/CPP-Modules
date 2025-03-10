@@ -11,11 +11,6 @@ bool bsp( Point const a, Point const b, Point const c, Point const point ) {
 	Fixed areaB = calc_area(point, b, c);
 	Fixed areaC = calc_area(point, a, c);
 
-	std::cout << area << std::endl;
-	std::cout << areaA << std::endl;
-	std::cout << areaB << std::endl;
-	std::cout << areaC << std::endl;
-
 	if (areaA == 0 || areaB == 0 || areaC == 0)
 		return false;
 	if ((areaA + areaB + areaC) == area)

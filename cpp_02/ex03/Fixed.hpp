@@ -41,8 +41,8 @@ public:
 	static Fixed& max( Fixed& a, Fixed& b );
 	static const Fixed& max( const Fixed& a, const Fixed& b );
 
-	Fixed( const int n );
-	Fixed( const float n );
+	Fixed( const int nt );
+	Fixed( const float flt );
 	Fixed( void );
 	Fixed( const Fixed& fixed );
 	~Fixed();
