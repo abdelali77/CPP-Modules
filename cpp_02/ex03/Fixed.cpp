@@ -32,7 +32,7 @@ Fixed::Fixed( const Fixed& fixed  ) {
 
 Fixed& Fixed::operator=( const Fixed &fixed ) {
 	if (this != &fixed)
-		this->fixedValue = fixed.fixedValue;
+		this->fixedValue = fixed.getRawBits();
 	return *this;
 }
 
