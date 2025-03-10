@@ -18,8 +18,8 @@ public:
 	float toFloat( void ) const;
 	int toInt( void ) const;
 
-	Fixed( const int n );
-	Fixed( const float n );
+	Fixed( const int nt );
+	Fixed( const float flt );
 	Fixed( void );
 	Fixed( const Fixed& fixed);
 	Fixed& operator=( const Fixed &fixed );
