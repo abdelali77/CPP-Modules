@@ -32,7 +32,7 @@ Fixed::Fixed( const Fixed& fixed  ) {
 
 Fixed& Fixed::operator=( const Fixed &fixed ) {
 	if (this != &fixed)
-		this->fixedValue = fixed.fixedValue;
+		this->fixedValue = fixed.getRawBits();
 	return *this;
 }
 
@@ -60,19 +60,19 @@ bool Fixed::operator!=( const Fixed &fixed ) const {
 	return this->fixedValue != fixed.fixedValue;
 }
 
-Fixed Fixed::operator+( const Fixed &fixed ) {
+Fixed Fixed::operator+( const Fixed &fixed ) const {
 	return this->toFloat() + fixed.toFloat();
 }
 
-Fixed Fixed::operator-( const Fixed &fixed ) {
+Fixed Fixed::operator-( const Fixed &fixed ) const {
 	return this->toFloat() - fixed.toFloat();
 }
 
-Fixed Fixed::operator*( const Fixed &fixed ) {
+Fixed Fixed::operator*( const Fixed &fixed ) const {
 	return this->toFloat() * fixed.toFloat();
 }
 
-Fixed Fixed::operator/( const Fixed &fixed ) {
+Fixed Fixed::operator/( const Fixed &fixed ) const {
 	return this->toFloat() / fixed.toFloat();
 }
 
