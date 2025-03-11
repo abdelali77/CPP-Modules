@@ -91,7 +91,6 @@ Fixed Fixed::operator--( int ) {
 	Fixed tmp(*this);
 	this->fixedValue--;
 	return tmp;
-	
 }
 
 Fixed Fixed::operator--( void ) {
