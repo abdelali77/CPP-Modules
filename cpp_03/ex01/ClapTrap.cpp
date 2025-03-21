@@ -30,17 +30,17 @@ void ClapTrap::beRepaired( unsigned int amount ) {
 
 ClapTrap::ClapTrap( void ) {
 	this->name = "kl3z";
-	this->hitPoints = 10;
-	this->energy = 10;
-	this->damage = 0;
+	this->hitPoints = 100;
+	this->energy = 50;
+	this->damage = 20;
 	std::cout << "Default Constructor called!" << std::endl;
 }
 
 ClapTrap::ClapTrap( std::string name ) {
 	this->name = name;
-	this->hitPoints = 10;
-	this->energy = 10;
-	this->damage = 0;
+	this->hitPoints = 100;
+	this->energy = 50;
+	this->damage = 20;
 	std::cout << this->name << " Parametrize construcotr called!" << std::endl;
 }
 
