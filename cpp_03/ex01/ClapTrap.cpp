@@ -15,7 +15,7 @@ void ClapTrap::takeDamage( unsigned int amount ) {
 	else
 		this->hitPoints -= amount;
 	std::cout << "ClapTrap " << this->name << " has been hit and loses " << amount << " health points! "
-	<< "Remaining hit points: " << this->hitPoints << std::endl;
+			  << "Remaining hit points: " << this->hitPoints << std::endl;
 }
 
 void ClapTrap::beRepaired( unsigned int amount ) {
@@ -29,23 +29,23 @@ void ClapTrap::beRepaired( unsigned int amount ) {
 }
 
 ClapTrap::ClapTrap( void ) {
-	this->name = "kl3z";
-	this->hitPoints = 100;
-	this->energy = 50;
-	this->damage = 20;
-	std::cout << "Default Constructor called!" << std::endl;
+	this->name = "unnamed";
+	this->hitPoints = 10;
+	this->energy = 10;
+	this->damage = 0;
+	std::cout << "ClapTrap Default Constructor called!" << std::endl;
 }
 
 ClapTrap::ClapTrap( std::string name ) {
 	this->name = name;
-	this->hitPoints = 100;
-	this->energy = 50;
-	this->damage = 20;
-	std::cout << this->name << " Parametrize construcotr called!" << std::endl;
+	this->hitPoints = 10;
+	this->energy = 10;
+	this->damage = 0;
+	std::cout << "ClapTrap " << this->name << " Parametrize construcotr called!" << std::endl;
 }
 
 ClapTrap::ClapTrap( const ClapTrap& claptrap ) {
-	std::cout << this->name << " Copy Constructor Called!" << std::endl;
+	std::cout << "ClapTrap" << this->name << " Copy Constructor Called!" << std::endl;
 	*this = claptrap;
 }
 
@@ -60,5 +60,5 @@ ClapTrap& ClapTrap::operator=( const ClapTrap& claptrap ) {
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << this->name << " Desctructor called!" << std::endl;
+	std::cout << "ClapTrap " << this->name << " Destructor called!" << std::endl;
 }
