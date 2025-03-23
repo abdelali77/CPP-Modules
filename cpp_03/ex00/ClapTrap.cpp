@@ -29,7 +29,7 @@ void ClapTrap::beRepaired( unsigned int amount ) {
 }
 
 ClapTrap::ClapTrap( void ) {
-	this->name = "kl3z";
+	this->name = "unnamed";
 	this->hitPoints = 10;
 	this->energy = 10;
 	this->damage = 0;
