@@ -10,11 +10,9 @@ SRC = main.cpp \
 	  Animal.cpp \
 	  Dog.cpp \
 	  Cat.cpp \
-	  WrongAnimal.cpp \
-	  WrongCat.cpp \
 	  Brain.cpp
 
-HDRS = Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
+HDRS = Animal.hpp Dog.hpp Cat.hpp Brain.hpp
 
 OBJS = $(SRC:.cpp=.o)
 

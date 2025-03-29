@@ -1,29 +1,31 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
-
-void	wrong_animal() {
-	const WrongAnimal*	wrongMeta	= new WrongAnimal();
-	const WrongAnimal*	wrongCat	= new WrongCat();
-	
-	std::cout << wrongMeta->getType() << ": "; wrongMeta->makeSound();
-	std::cout << wrongCat->getType() << ": "; wrongCat->makeSound();
-	
-	delete wrongMeta; delete wrongCat;
-}
+#include <cstdlib>
 
 int	main( void ) {
-	const Animal*	meta	= new Animal();
-	const Animal*	j 		= new Dog();
-	const Animal*	i		= new Cat();
-	
-	std::cout << j->getType() << ": "; j->makeSound();
-	std::cout << i->getType() << ": "; i->makeSound();
-	std::cout << meta->getType() << ": "; meta->makeSound();
-	
-	delete meta;delete i;delete j;
-	
-	// wrong_animal();
+	Animal* animals[20];
+	int n = 2;
+
+	for (int i = 0; i < n; i++) {
+		if (i >= n / 2)
+			animals[i] = new Dog();
+		else
+			animals[i] = new Cat();
+	}
+
+	Cat originalCat;
+
+	originalCat.getBrain()->setIdeas("kl3z");
+	std::cout << originalCat.getBrain()->getIdeas()[3] << std::endl;
+	Cat copiedCat = originalCat;
+	std::cout << copiedCat.getBrain()->getIdeas()[3] << std::endl;
+	copiedCat.getBrain()->setIdeas("brrrrrtt");
+	std::cout << copiedCat.getBrain()->getIdeas()[3] << std::endl;
+	std::cout << originalCat.getBrain()->getIdeas()[3] << std::endl;
+
+	for (int i = 0; i < n; i++) {
+		delete animals[i];
+	}
+	return 0;
 }

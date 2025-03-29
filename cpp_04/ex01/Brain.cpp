@@ -1,5 +1,14 @@
 #include "Brain.hpp"
 
+void Brain::setIdeas( std::string idea ) {
+	for(int i = 0; i < 100; i++)
+		this->ideas[i] = idea;
+}
+
+std::string* Brain::getIdeas( void ) {
+	return (this->ideas);
+}
+
 Brain::Brain( void ) {
 	if (DEBUG)
 		std::cout << "Brain Default Constructor Called!" << std::endl;

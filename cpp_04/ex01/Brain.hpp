@@ -8,8 +8,11 @@
 // ************************************************************************** //
 
 class Brain {
-public:
+private:
 	std::string ideas[100];
+public:
+	void setIdeas( std::string idea );
+	std::string* getIdeas( void );
 
 	Brain( void );
 	Brain( const Brain& brain );
