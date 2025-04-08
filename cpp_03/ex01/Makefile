@@ -1,6 +1,6 @@
 NAME = scavtrap
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 GREEN=\033[0;32m
 YELLOW=\033[0;33m
