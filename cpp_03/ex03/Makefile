@@ -1,6 +1,6 @@
 NAME = diamondtrap
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow -fsanitize=address -g
+FLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow
 
 GREEN=\033[0;32m
 YELLOW=\033[0;33m

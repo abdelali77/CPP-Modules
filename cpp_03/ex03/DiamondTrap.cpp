@@ -27,7 +27,7 @@ DiamondTrap::DiamondTrap( std::string _name ) : ClapTrap(_name + "_clap_name"), 
 	this->damage = 30;
 }
 
-DiamondTrap::DiamondTrap( const DiamondTrap& diamond ) : ClapTrap(this->name + "_clap_name"), ScavTrap(this->name), FragTrap(this->name) {
+DiamondTrap::DiamondTrap( const DiamondTrap& diamond ) : ClapTrap(diamond.name + "_clap_name") {
 	if (DEBUG)
 		std::cout << "DiamondTrap " << this->name << " Copy Constructor Called!" << std::endl;
 	*this = diamond;
