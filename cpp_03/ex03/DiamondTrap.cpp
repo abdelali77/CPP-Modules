@@ -2,7 +2,7 @@
 
 void DiamondTrap::whoAmI( void ) {
 	std::cout << "I am DiamondTrap! My name is " << this->name 
-              << ", and my ClapTrap name is " << ClapTrap::name << "." << std::endl;
+			  << ", and my ClapTrap name is " << ClapTrap::name << "." << std::endl;
 }
 
 void DiamondTrap::attack( const std::string& target ) {
@@ -20,7 +20,7 @@ DiamondTrap::DiamondTrap( void ) : ScavTrap("unnamed"), FragTrap("unnamed") {
 
 DiamondTrap::DiamondTrap( std::string _name ) : ClapTrap(_name + "_clap_name"), ScavTrap(_name), FragTrap(_name) {
 	if (DEBUG)
-	std::cout << "DiamondTrap " << this->name << " Parametrize constructor called!" << std::endl;
+		std::cout << "DiamondTrap " << this->name << " Parametrize constructor called!" << std::endl;
 	this->name = _name;
 	this->hitPoints = 100;
 	this->energy = 50;

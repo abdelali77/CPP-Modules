@@ -1,9 +1,9 @@
 #include "DiamondTrap.hpp"
 
 int main() {
-    DiamondTrap su("SU-57");
+    DiamondTrap su("su-57");
 
-	su.attack("F-35");
+	su.attack("f-35");
 	su.guardGate();
 	su.takeDamage(20);
 	su.beRepaired(20);
