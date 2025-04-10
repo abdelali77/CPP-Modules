@@ -13,7 +13,6 @@ private:
 	std::string name;
 public:
 	void whoAmI( void );
-	void attack( const std::string& target );
 
 	DiamondTrap( void );
 	DiamondTrap( std::string _name );

@@ -5,10 +5,6 @@ void DiamondTrap::whoAmI( void ) {
 			  << ", and my ClapTrap name is " << ClapTrap::name << "." << std::endl;
 }
 
-void DiamondTrap::attack( const std::string& target ) {
-	ScavTrap::attack(target);
-}
-
 DiamondTrap::DiamondTrap( void ) : ScavTrap("unnamed"), FragTrap("unnamed") {
 	if (DEBUG)
 		std::cout << "DiamondTrap Default Constructor called!" << std::endl;
