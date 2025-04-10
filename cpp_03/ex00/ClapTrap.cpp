@@ -1,8 +1,9 @@
 #include "ClapTrap.hpp"
 
 void ClapTrap::attack( const std::string& target ) {
-	if (this->energy > 0 && this->hitPoints > 0) {
+	if (this->energy > 0 && this->hitPoints > 0 && this->hitPoints < this->damage) {
 		this->energy--;
+		this->hitPoints -= this->damage;
 		std::cout << this->name << " attacks " << target << ", causing " << this->damage << " points of damage!" << std::endl;
 	} else {
 		std::cout << this->name << " can't attack. No energy or hit points left!" << std::endl;
