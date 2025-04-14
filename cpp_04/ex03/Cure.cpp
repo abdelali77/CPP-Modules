@@ -16,6 +16,6 @@ Cure& Cure::operator=( const Cure& other ) {
 Cure::~Cure() { }
 
 AMateria* Cure::clone() const {
-	AMateria* newCure = new Cure();
-	return newCure;
+	AMateria* cureClone = new Cure();
+	return cureClone;
 }
