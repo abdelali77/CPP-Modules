@@ -21,7 +21,7 @@ public:
 	AMateria( void );
 	AMateria( const AMateria& other );
 	AMateria& operator=( const AMateria& other );
-	~AMateria();
+	virtual ~AMateria();
 
 	std::string const & getType() const;
 

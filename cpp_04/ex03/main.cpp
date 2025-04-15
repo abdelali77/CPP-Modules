@@ -20,11 +20,19 @@ int main( void ) {
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	me->unequip(2);
 
 	ICharacter* bob = new Character("bob");
 	
 	me->use(0, *bob);
 	me->use(1, *bob);
+	me->use(3, *bob);
+
+	me->unequip(1);
 
 	delete bob;
 	delete me;

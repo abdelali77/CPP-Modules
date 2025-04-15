@@ -4,12 +4,13 @@
 #include "ICharacter.hpp"
 
 // ************************************************************************** //
-//                               Character Class                               //
+//                               Character Class                              //
 // ************************************************************************** //
 
 class Character : public ICharacter {
 private:
 	AMateria* materias[4];
+	AMateria* unequipped[4];
 	std::string name;
 public:
 	Character( std::string name );
