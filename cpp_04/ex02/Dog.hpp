@@ -1,14 +1,14 @@
 #ifndef __DOG_HPP__
 #define __DOG_HPP__
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
 // ************************************************************************** //
 //                                  Dog Class                                 //
 // ************************************************************************** //
 
-class Dog : public Animal {
+class Dog : public AAnimal {
 private:
 	Brain* dogBrain;
 public:

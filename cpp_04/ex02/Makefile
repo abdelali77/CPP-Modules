@@ -7,12 +7,12 @@ YELLOW=\033[0;33m
 NC=\033[0m
 
 SRC = main.cpp \
-	  Animal.cpp \
+	  AAnimal.cpp \
 	  Dog.cpp \
 	  Cat.cpp \
 	  Brain.cpp
 
-HDRS = Animal.hpp Dog.hpp Cat.hpp Brain.hpp
+HDRS = AAnimal.hpp Dog.hpp Cat.hpp Brain.hpp
 
 OBJS = $(SRC:.cpp=.o)
 

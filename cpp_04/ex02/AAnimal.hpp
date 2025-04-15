@@ -7,20 +7,20 @@
 #define DEBUG 0
 
 // ************************************************************************** //
-//                               Animal Class                             	  //
+//                              AAnimal Class                             	  //
 // ************************************************************************** //
 
-class Animal {
+class AAnimal {
 protected:
 	std::string type;
 public:
 	virtual void makeSound( void ) const = 0;
 	std::string getType( void ) const;
 
-	Animal( void );
-	Animal( const Animal& animal );
-	Animal& operator=(const Animal& animal );
-	virtual ~Animal();
+	AAnimal( void );
+	AAnimal( const AAnimal& animal );
+	AAnimal& operator=(const AAnimal& animal );
+	virtual ~AAnimal();
 };
 
 

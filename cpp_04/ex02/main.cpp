@@ -1,10 +1,10 @@
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include <cstdlib>
 
 int	main( void ) {
-	Animal* animals[20];
+	AAnimal* animals[20];
 	int n = 2;
 
 	for (int i = 0; i < n; i++) {

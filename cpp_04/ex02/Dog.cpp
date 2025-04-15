@@ -15,7 +15,7 @@ Dog::Dog( void ) {
 	this->dogBrain = new Brain();
 }
 
-Dog::Dog( const Dog& dog ) : Animal() {
+Dog::Dog( const Dog& dog ) : AAnimal() {
 	if (DEBUG)
 		std::cout << "Dog Copy Constructor Called!" << std::endl;
 	this->type = dog.type;
