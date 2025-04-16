@@ -16,7 +16,7 @@ int	main( void ) {
 
 	Cat originalCat;
 
-	originalCat.getBrain()->setIdeas("kl3z");
+	originalCat.getBrain()->setIdeas("vvvvv");
 	std::cout << originalCat.getBrain()->getIdeas()[3] << std::endl;
 	Cat copiedCat = originalCat;
 	std::cout << copiedCat.getBrain()->getIdeas()[3] << std::endl;

@@ -4,10 +4,6 @@ std::string AAnimal::getType( void ) const {
 	return this->type;
 }
 
-void AAnimal::makeSound( void ) const {
-	std::cout << "Noise!" << std::endl;
-}
-
 AAnimal::AAnimal( void ) : type("Generic Animal") {
 	if (DEBUG)
 		std::cout << "Animal Default Constructor Called!" << std::endl;

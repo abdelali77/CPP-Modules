@@ -15,7 +15,7 @@ Cat::Cat( void ) {
 	this->catBrain = new Brain();
 }
 
-Cat::Cat( const Cat& cat ) : AAnimal() {
+Cat::Cat( const Cat& cat ) {
 	if (DEBUG)
 		std::cout << "Cat Copy Constructor Called!" << std::endl;
 	this->type = cat.type;
