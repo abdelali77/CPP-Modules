@@ -2,6 +2,7 @@
 #define __CHARACTER_HPP__
 
 #include "ICharacter.hpp"
+#include "MateriaSource.hpp"
 
 // ************************************************************************** //
 //                               Character Class                              //
@@ -10,7 +11,6 @@
 class Character : public ICharacter {
 private:
 	AMateria* materias[4];
-	AMateria* unequipped[4];
 	std::string name;
 public:
 	Character( std::string name );
@@ -19,10 +19,10 @@ public:
 	Character& operator=( const Character& other );
 	~Character();
 
-	virtual std::string const & getName() const;
-	virtual void equip( AMateria* m );
-	virtual void unequip( int idx );
-	virtual void use( int idx, ICharacter& target );
+	std::string const & getName() const;
+	void equip( AMateria* m );
+	void unequip( int idx );
+	void use( int idx, ICharacter& target );
 };
 
 #endif

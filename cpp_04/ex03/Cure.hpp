@@ -14,7 +14,7 @@ public:
 	Cure& operator=( const Cure& other );
 	~Cure();
 
-	virtual AMateria* clone() const;
+	AMateria* clone() const;
 };
 
 

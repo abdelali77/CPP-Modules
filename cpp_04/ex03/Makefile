@@ -1,7 +1,7 @@
 NAME = materia
 
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
+FLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g
 
 GREEN=\033[0;32m
 YELLOW=\033[0;33m
@@ -9,12 +9,12 @@ NC=\033[0m
 
 SRC = main.cpp \
 	  AMateria.cpp \
+	  MateriaSource.cpp \
 	  Character.cpp \
 	  Cure.cpp \
-	  Ice.cpp \
-	  MateriaSource.cpp
+	  Ice.cpp
 
-HDRS = AMateria.hpp Character.hpp Cure.hpp Ice.hpp ICharacter.hpp IMateriaSource.hpp MateriaSource.hpp
+HDRS = AMateria.hpp Character.hpp Cure.hpp Ice.hpp ICharacter.hpp IMateriaSource.hpp MateriaSource.hpp utils.hpp
 
 OBJS = $(SRC:.cpp=.o)
 

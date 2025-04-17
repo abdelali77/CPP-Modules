@@ -14,7 +14,7 @@ public:
 	Ice& operator=( const Ice& other );
 	~Ice();
 
-	virtual AMateria* clone() const;
+	AMateria* clone() const;
 };
 
 #endif
