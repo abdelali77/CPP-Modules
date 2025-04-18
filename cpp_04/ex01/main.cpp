@@ -15,14 +15,13 @@ int	main( void ) {
 
 	Cat originalCat;
 
-	originalCat.getBrain()->setIdeas("kl3z");
+	originalCat.getBrain()->setIdeas("void");
 	std::cout << originalCat.getBrain()->getIdeas()[3] << std::endl;
 	Cat copiedCat = originalCat;
 	std::cout << copiedCat.getBrain()->getIdeas()[3] << std::endl;
 	copiedCat.getBrain()->setIdeas("brrrrrtt");
 	std::cout << copiedCat.getBrain()->getIdeas()[3] << std::endl;
 	std::cout << originalCat.getBrain()->getIdeas()[3] << std::endl;
-	animals[0]->getType();
 
 	for (int i = 0; i < n; i++) {
 		delete animals[i];
