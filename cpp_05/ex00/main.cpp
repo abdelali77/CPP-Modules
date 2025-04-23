@@ -2,7 +2,7 @@
 
 int main( void ) {
 	try {
-		Bureaucrat b;
+		Bureaucrat b("Saddam", 100);
 		std::cout << b;
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
