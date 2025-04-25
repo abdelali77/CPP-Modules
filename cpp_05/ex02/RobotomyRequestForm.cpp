@@ -26,9 +26,9 @@ void RobotomyRequestForm::execute( Bureaucrat const & executor ) const {
 		std::srand(std::time(0));
 		int randomNum = std::rand() % 100 + 1;
 		if (randomNum % 2 == 0) {
-			std::cout << this->target << " has been robotomized successfully." << randomNum << std::endl;
+			std::cout << this->target << " has been robotomized successfully." << std::endl;
 		} else {
-			std::cout << this->target << " failed to robotomized." << randomNum << std::endl;
+			std::cout << this->target << " failed to robotomized." << std::endl;
 		}
 	} else {
 		throw std::runtime_error(std::string("RobotomyRequestForm::GradeTooLowException Or FormNotSigned"));

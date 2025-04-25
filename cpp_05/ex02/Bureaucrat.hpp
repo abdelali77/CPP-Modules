@@ -20,6 +20,7 @@ public:
 	void incrementGrade( void );
 	void decrementGrade( void );
 	void signForm( AForm& form );
+	void executeForm( AForm const & form ) const;
 
 	Bureaucrat( void );
 	Bureaucrat( std::string name, int grade );
