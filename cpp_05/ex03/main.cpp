@@ -8,8 +8,10 @@ int main( void ) {
 	try {
 		Intern intern;
 		AForm* rrf;
+		Bureaucrat sadam("sadam", 17);
 
-		rrf = intern.makeForm("vvv", "Bender");
+		rrf = intern.makeForm("presidential pardon", "Bender");
+		sadam.signForm(*rrf);
 		delete rrf;
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
