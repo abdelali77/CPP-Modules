@@ -4,7 +4,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( std::string target) : AForm(target
 
 ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("default", 145, 137), target("default") { }
 
-ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm& other ) {
+ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm& other ) : AForm(target, 145, 137) {
 	*this = other;
 }
 
@@ -25,7 +25,7 @@ void ShrubberyCreationForm::execute( Bureaucrat const & executor ) const {
 		std::ofstream	file;
 		std::string name = this->target;
 		name.append("_shrubbery");
-		file.open(name);
+		file.open(name.c_str());
 		if (file.is_open()) {
 			file << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠒⡄⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n"
 				 << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⠂⢿⠇⣨⠆⠀⣠⠋⢰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n"

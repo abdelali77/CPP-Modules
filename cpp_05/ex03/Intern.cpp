@@ -9,7 +9,10 @@ Intern::Intern( const Intern& other ) {
 	*this = other;
 }
 
-Intern& Intern::operator=( const Intern& other ) { return *this; }
+Intern& Intern::operator=( const Intern& other ) {
+	(void)other;
+	return *this;
+}
 
 Intern::~Intern() { }
 
@@ -36,7 +39,10 @@ AForm* Intern::makeForm( std::string name, std::string target ) {
 	};
 	std::string forms[3] = {"robotomy request", "shrubbery creation", "presidential pardon"};
 	for (int i = 0; i < 3; i++) {
-		if (name == forms[i])
+		if (name == forms[i]) {
+			std::cout << "Intern creates " << name << " form." << std::endl;
 			return (this->*arr[i])(target);
+		}
 	}
+	throw std::runtime_error(std::string("Inter::UnknownForm"));
 }

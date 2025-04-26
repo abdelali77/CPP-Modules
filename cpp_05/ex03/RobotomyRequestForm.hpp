@@ -2,6 +2,8 @@
 #define __ROBOTOMYREQUESTFORM_HPP__
 
 #include "AForm.hpp"
+#include <ctime>
+#include <cstdlib>
 
 // ************************************************************************** //
 //                         RobotomyRequestForm Class                          //

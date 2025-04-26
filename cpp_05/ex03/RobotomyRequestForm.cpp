@@ -4,7 +4,7 @@ RobotomyRequestForm::RobotomyRequestForm( std::string target ) : AForm(target, 7
 
 RobotomyRequestForm::RobotomyRequestForm( void ) : AForm("default", 72, 45), target("default") { }
 
-RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm& other ) {
+RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm& other ) : AForm(target, 72, 45) {
 	*this = other;
 }
 
