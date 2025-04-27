@@ -9,7 +9,7 @@ Bureaucrat::Bureaucrat( std::string name, int grade ) : name(name), grade(grade)
 		throw std::runtime_error(std::string("Bureaucrat::GradeTooLowException"));
 }
 
-Bureaucrat::Bureaucrat( const Bureaucrat& other ) {
+Bureaucrat::Bureaucrat( const Bureaucrat& other ) : name(other.name) {
 	*this = other;
 }
 
@@ -31,7 +31,7 @@ int Bureaucrat::getGrade( void ) const {
 
 void Bureaucrat::incrementGrade( void ) {
 	this->grade--;
-	if (this->grade > 1)
+	if (this->grade < 1)
 		throw std::runtime_error(std::string("Bureaucrat::GradeTooHighException"));
 }
 
