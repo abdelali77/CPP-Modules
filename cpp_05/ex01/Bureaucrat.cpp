@@ -34,15 +34,11 @@ void Bureaucrat::incrementGrade( void ) {
 	this->grade--;
 	if (this->grade > 1)
 		throw std::runtime_error(std::string("Bureaucrat::GradeTooHighException"));
-	else if (this->grade > 150)
-		throw std::runtime_error(std::string("Bureaucrat::GradeTooLowException"));
 }
 
 void Bureaucrat::decrementGrade( void ) {
 	this->grade++;
-	if (this->grade > 1)
-		throw std::runtime_error(std::string("Bureaucrat::GradeTooHighException"));
-	else if (this->grade > 150)
+	if (this->grade > 150)
 		throw std::runtime_error(std::string("Bureaucrat::GradeTooLowException"));
 }
 
