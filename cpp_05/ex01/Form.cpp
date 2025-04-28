@@ -2,14 +2,16 @@
 
 Form::Form( void ) : name("unknown"), _signed(false), sign_grade(10), execute_grade(10) { }
 
-Form::Form( std::string name, int sign_grade, int execute_grade ) : name(name), _signed(false), sign_grade(sign_grade), execute_grade(execute_grade) {
+Form::Form( std::string name, int sign_grade, int execute_grade )
+	 : name(name), _signed(false), sign_grade(sign_grade), execute_grade(execute_grade) {
 	if (sign_grade < 1 || execute_grade < 1)
 		throw std::runtime_error(std::string("Form::GradeTooHighException"));
 	else if (sign_grade > 150 || execute_grade > 150)
 		throw std::runtime_error(std::string("Form::GradeTooLowException"));
 }
 
-Form::Form( const Form& other ) : sign_grade(10), execute_grade(10) {
+Form::Form( const Form& other )
+	: name(other.getName()), sign_grade(10), execute_grade(10) {
 	*this = other;
 }
 

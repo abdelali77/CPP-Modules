@@ -4,8 +4,8 @@
 int main( void ) {
 	try {
 		Bureaucrat sadam("saddam", 10);
-		Form form("ba3t", 1, 1);
-		Form form1("vvv", 100, 2);
+		Form form("4-43dfgw", 1, 1);
+		Form form1("vvv-11", 100, 2);
 		sadam.signForm(form);
 		sadam.signForm(form1);
 	} catch (std::exception& e) {
