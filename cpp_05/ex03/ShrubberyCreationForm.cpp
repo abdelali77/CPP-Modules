@@ -2,7 +2,7 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm( std::string target) : AForm(target, 145, 137), target(target) { }
 
-ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("default", 145, 137), target("default") { }
+ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("unknown", 145, 137), target("unknown") { }
 
 ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm& other ) {
 	*this = other;

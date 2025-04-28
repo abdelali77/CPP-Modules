@@ -6,7 +6,7 @@
 Intern::Intern( void ) { }
 
 Intern::Intern( const Intern& other ) {
-	*this = other;
+	(void)other;
 }
 
 Intern& Intern::operator=( const Intern& other ) {

@@ -10,7 +10,7 @@ int main( void ) {
 		AForm* rrf;
 		Bureaucrat sadam("sadam", 17);
 
-		rrf = intern.makeForm("presidential pardon", "Bender");
+		rrf = intern.makeForm("presidential pardon", "vv-ve32");
 		sadam.signForm(*rrf);
 		delete rrf;
 	} catch (std::exception& e) {

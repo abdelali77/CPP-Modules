@@ -2,7 +2,7 @@
 
 PresidentialPardonForm::PresidentialPardonForm( std::string target ) : AForm(target, 25, 5), target(target) { }
 
-PresidentialPardonForm::PresidentialPardonForm( void ) : AForm("default", 25, 5), target("default") { }
+PresidentialPardonForm::PresidentialPardonForm( void ) : AForm("unknown", 25, 5), target("unknown") { }
 
 PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm& other ) {
 	*this = other;
