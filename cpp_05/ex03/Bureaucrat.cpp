@@ -1,7 +1,7 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
-Bureaucrat::Bureaucrat( void ) : name("unknown"), grade(10) { }
+Bureaucrat::Bureaucrat( void ) : name("unknown"), grade(150) { }
 
 Bureaucrat::Bureaucrat( std::string name, int grade ) : name(name), grade(grade) {
 	if (grade < 1)
