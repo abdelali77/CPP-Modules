@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat( void ) : name("kl3z"), grade(10) { }
+Bureaucrat::Bureaucrat( void ) : name("kl3z"), grade(150) { }
 
 Bureaucrat::Bureaucrat( std::string name, int grade ) : name(name), grade(grade) {
 	if (grade < 1)
