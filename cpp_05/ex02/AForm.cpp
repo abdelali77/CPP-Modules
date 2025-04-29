@@ -1,6 +1,6 @@
 #include "AForm.hpp"
 
-AForm::AForm( void ) : name("unknown"), _signed(false), sign_grade(10), execute_grade(10) { }
+AForm::AForm( void ) : name("unknown"), _signed(false), sign_grade(150), execute_grade(150) { }
 
 AForm::AForm( std::string name, int sign_grade, int execute_grade )
 	  : name(name), _signed(false), sign_grade(sign_grade), execute_grade(execute_grade) {
