@@ -7,7 +7,9 @@ GREEN=\033[0;32m
 NC=\033[0m
 
 SRC = main.cpp \
-	  ScalarConverter.cpp
+	  ScalarConverter.cpp \
+	  utils.cpp \
+	  utils2.cpp
 
 HDRS = ScalarConverter.hpp
 
@@ -20,7 +22,7 @@ OBJS = $(SRC:.cpp=.o)
 all:$(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	@rm -rf $(OBJS)
