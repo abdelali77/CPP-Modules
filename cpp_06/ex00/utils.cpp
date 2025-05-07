@@ -67,6 +67,8 @@ bool isSpecial( std::string& str ) {
 e_type find_type( std::string& str, int& len ) {
 	size_t dot = str.find('.');
 
+	if (len == 0)
+		return NONE;
 	if (dot == std::string::npos) {
 		if (isChar(str, len))
 			return CHAR;
