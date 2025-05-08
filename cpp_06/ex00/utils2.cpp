@@ -1,22 +1,15 @@
 #include "utils.hpp"
 
 void convertChar( std::string str ) {
-	char chr;
-	if (str.length() == 1)
-		chr = str[0];
+	char chr = str[1];
+	std::cout << "char: ";
+	if (isprint(chr))
+		std::cout << "'" << chr << "'" << std::endl;
 	else
-		chr = str[1];
-	if (chr >= 32 && chr <= 126) {
-		std::cout << "char: '" << chr << "'" << std::endl;
-		std::cout << "int: " << static_cast<int>(chr) << std::endl;
-		std::cout << "float: " << static_cast<float>(chr) << ".0f" << std::endl;
-		std::cout << "double: " << static_cast<double>(chr) << ".0" << std::endl;
-	} else {
-		std::cout << "char: Non displayable" << std::endl;
-		std::cout << "int: " << static_cast<int>(chr) << std::endl;
-		std::cout << "float: " << static_cast<float>(chr) << ".0f" << std::endl;
-		std::cout << "double: " << static_cast<double>(chr) << ".0" << std::endl;
-	}
+		std::cout << "Non displayable" << std::endl;
+	std::cout << "int: " << static_cast<int>(chr) << std::endl;
+	std::cout << "float: " << static_cast<float>(chr) << ".0f" << std::endl;
+	std::cout << "double: " << static_cast<double>(chr) << ".0" << std::endl;
 }
 
 void convertSpecial( std::string str ) {
@@ -42,23 +35,22 @@ void convertSpecial( std::string str ) {
 
 void convertInt( std::string str ) {
 	long num = std::atol(str.c_str());
-	if (num < std::numeric_limits<int>::min() || num > std::numeric_limits<int>::max()) {
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: " << static_cast<float>(num) << ".0f" << std::endl;
-		std::cout << "double: " << static_cast<double>(num) << ".0" << std::endl;
+	std::cout << "char: ";
+	if (num < 0 || num > 127)
+		std::cout << "impossible" << std::endl;
+	else {
+		if (isprint(num))
+			std::cout << "'" << static_cast<char>(num) << "'" << std::endl;
+		else
+			std::cout << "Non displayable" << std::endl;
 	}
-	else if (!(num >= 32 && num <= 126)) {
-		std::cout << "char: Non displayable" << std::endl;
-		std::cout << "int: " << static_cast<int>(num) << std::endl;
-		std::cout << "float: " << static_cast<float>(num) << ".0f" << std::endl;
-		std::cout << "double: " << static_cast<double>(num) << ".0" << std::endl;
-	} else {
-		std::cout << "char: '" << static_cast<char>(num) << "'" << std::endl;
-		std::cout << "int: " << static_cast<int>(num) << std::endl;
-		std::cout << "float: " << static_cast<float>(num) << ".0f" << std::endl;
-		std::cout << "double: " << static_cast<double>(num) << ".0" << std::endl;
-	}
+	std::cout << "int: ";
+	if (num < std::numeric_limits<int>::min() || num > std::numeric_limits<int>::max())
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << static_cast<int>(num) << std::endl;
+	std::cout << "float: " << static_cast<float>(num) << ".0f" << std::endl;
+	std::cout << "double: " << static_cast<double>(num) << ".0" << std::endl;
 }
 
 void convertFloat( std::string str ) {
@@ -101,20 +93,29 @@ void convertDouble( std::string str ) {
 	}
 }
 
-void converters( std::string str ) {
-	int len = str.length();
+void converters( std::string& str ) {
+	size_t len = str.length();
 	e_type type = find_type(str, len);
 
-	if (type == CHAR)
+	switch (type)
+	{
+	case CHAR:
 		convertChar(str);
-	else if (type == SPECIAL)
+		break;
+	case SPECIAL:
 		convertSpecial(str);
-	else if (type == INT)
+		break;
+	case INT:
 		convertInt(str);
-	else if (type == FLOAT)
+		break;
+	case FLOAT:
 		convertFloat(str);
-	else if (type == DOUBLE)
+		break;
+	case DOUBLE:
 		convertDouble(str);
-	else if (type == NONE)
+		break;
+	default:
 		std::cout << "Invalid input" << std::endl;
+		break;
+	}
 }

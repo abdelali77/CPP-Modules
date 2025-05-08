@@ -13,5 +13,5 @@ enum e_type {
 	NONE
 };
 
-e_type find_type( std::string& str, int& len );
-void converters( std::string str );
+e_type find_type( std::string& str, size_t& len );
+void converters( std::string& str );
