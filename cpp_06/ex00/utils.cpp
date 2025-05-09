@@ -41,7 +41,7 @@ bool isFloat( std::string& str, size_t& len, size_t& dot ) {
 }
 
 bool isDouble( std::string& str, size_t& len, size_t& dot ) {
-	if (dot == 0 || dot >= len - 2)
+	if (dot == 0 || dot >= len - 1)
 		return false;
 	size_t start = (str[0] == '-' || str[0] == '+') ? 1 : 0;
 

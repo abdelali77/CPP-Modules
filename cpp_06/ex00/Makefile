@@ -1,7 +1,7 @@
 NAME = convert
 
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g
 
 GREEN=\033[0;32m
 NC=\033[0m

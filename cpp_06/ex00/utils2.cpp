@@ -55,42 +55,54 @@ void convertInt( std::string str ) {
 
 void convertFloat( std::string str ) {
 	float num = std::atof(str.c_str());
-	if (num >= 32.0 && num <= 126.0) {
-		std::cout << "char: '" << static_cast<char>(num) << "'" << std::endl;
-		std::cout << "int: " << static_cast<int>(num) << std::endl;
-		std::cout << "float: " << num << "f" << std::endl;
-		std::cout << "double: " << static_cast<double>(num) << std::endl;
-	} else if (num > std::numeric_limits<float>::max() || num < std::numeric_limits<float>::min()) {
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: " << num << "f" << std::endl;
-		std::cout << "double: " << static_cast<double>(num) << std::endl;
-	} else {
-		std::cout << "char: Non displayable" << std::endl;
-		std::cout << "int: " << static_cast<int>(num) << std::endl;
-		std::cout << "float: " << num << "f" << std::endl;
-		std::cout << "double: " << static_cast<double>(num) << std::endl;
+	std::cout << "char: ";
+	if (num < 0 || num > 127)
+		std::cout << "impossible" << std::endl;
+	else {
+		if (isprint(num))
+			std::cout << "'" << static_cast<char>(num) << "'" << std::endl;
+		else
+			std::cout << "Non displayable" << std::endl;
 	}
+	std::cout << "int: ";
+	if (num < std::numeric_limits<int>::min() || num > std::numeric_limits<int>::max())
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << static_cast<int>(num) << std::endl;
+	std::cout << "float: ";
+	if (num < -std::numeric_limits<float>::max() || num > std::numeric_limits<float>::max()) {
+		std::cout << "impossible" << std::endl;
+	} else
+		std::cout << num  << "f" << std::endl;
+	std::cout << "double: " << static_cast<double>(num) << std::endl;
 }
 
 void convertDouble( std::string str ) {
 	double num = std::atof(str.c_str());
-	if (num >= 32.0 && num <= 126.0) {
-		std::cout << "char: '" << static_cast<char>(num) << "'" << std::endl;
-		std::cout << "int: " << static_cast<int>(num) << std::endl;
-		std::cout << "float: " << static_cast<float>(num) << "f" << std::endl;
-		std::cout << "double: " << num << std::endl;
-	} else if (num > std::numeric_limits<double>::max() || num < std::numeric_limits<double>::min()) {
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: impossible" << std::endl;
-		std::cout << "double: " << num << std::endl;
-	} else {
-		std::cout << "char: Non displayable" << std::endl;
-		std::cout << "int: " << static_cast<int>(num) << std::endl;
-		std::cout << "float: " << static_cast<float>(num) << "f" << std::endl;
-		std::cout << "double: " << num << std::endl;
+	std::cout << "char: ";
+	if (num < 0 || num > 127)
+		std::cout << "impossible" << std::endl;
+	else {
+		if (isprint(num))
+			std::cout << "'" << static_cast<char>(num) << "'" << std::endl;
+		else
+			std::cout << "Non displayable" << std::endl;
 	}
+	std::cout << "int: ";
+	if (num < std::numeric_limits<int>::min() || num > std::numeric_limits<int>::max())
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << static_cast<int>(num) << std::endl;
+	std::cout << "float: ";
+	if (num < -std::numeric_limits<float>::max() || num > std::numeric_limits<float>::max())
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << static_cast<float>(num) << std::endl;
+	std::cout << "double: ";
+	if (num < std::numeric_limits<double>::min() || num > std::numeric_limits<double>::max())
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << num << std::endl;
 }
 
 void converters( std::string& str ) {
