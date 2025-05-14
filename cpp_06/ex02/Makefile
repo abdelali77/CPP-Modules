@@ -8,8 +8,8 @@ NC=\033[0m
 
 SRCS = main.cpp \
 	   Base.cpp \
-	   funs.cpp
-HDRS = Base.hpp A.hpp B.hpp C.hpp
+	   type.cpp
+HDRS = Base.hpp A.hpp B.hpp C.hpp type.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 

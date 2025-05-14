@@ -1,10 +1,9 @@
-#include "funs.hpp"
-
-void lks() {system("leaks real");}
+#include "type.hpp"
 
 int main( void ) {
-	atexit(lks);
 	Base* base = generate();
 
 	identify(base);
+	identify(*base);
+	delete base;
 }

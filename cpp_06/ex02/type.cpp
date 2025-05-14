@@ -1,13 +1,13 @@
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
-#include "funs.hpp"
+#include "type.hpp"
 
 Base * generate( void ) {
 	std::srand(time(0));
 	int rnd = std::rand() % 3;
 
-	Base * ret;
+	Base* ret;
 	switch (rnd)
 	{
 	case 0:
@@ -43,25 +43,19 @@ void identify( Base* p ) {
 
 void identify( Base& p ) {
 	try {
-		A& a = dynamic_cast<A&>(p);
+		(void)dynamic_cast<A&>(p);
 		std::cout << "type of p: 'A'" << std::endl;
 		return;
-	} catch(const std::bad_cast& e) {
-		std::cerr << e.what() << std::endl;
-	}
+	} catch(const std::bad_cast& e) { }
 	try {
-		B& b = dynamic_cast<B&>(p);
+		(void)dynamic_cast<B&>(p);
 		std::cout << "type of p: 'B'" << std::endl;
 		return;
-	} catch(const std::bad_cast& e) {
-		std::cerr << e.what() << std::endl;
-	}
+	} catch(const std::bad_cast& e) { }
 	try {
-		C& c = dynamic_cast<C&>(p);
+		(void)dynamic_cast<C&>(p);
 		std::cout << "type of p: 'C'" << std::endl;
 		return;
-	} catch(const std::bad_cast& e) {
-		std::cerr << e.what() << std::endl;
-	}
+	} catch(const std::bad_cast& e) { }
 	std::cerr << "Failed to cast" << std::endl;
 }
