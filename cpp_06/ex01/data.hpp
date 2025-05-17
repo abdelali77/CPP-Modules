@@ -2,6 +2,6 @@
 
 struct Data
 {
-	std::string name;
 	int	id;
+	std::string name;
 };
