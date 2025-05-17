@@ -45,17 +45,14 @@ bool isDouble( std::string& str, size_t& len, size_t& dot ) {
 		return false;
 	size_t start = (str[0] == '-' || str[0] == '+') ? 1 : 0;
 
-	// At least one digit before the dot
 	if (dot <= start)
 		return false;
 
-	// Check digits before the dot
 	for (size_t i = start; i < dot; ++i) {
 		if (!isdigit(str[i]))
 			return false;
 	}
 
-	// At least one digit after the dot
 	if (dot + 1 >= len)
 		return false;
 
