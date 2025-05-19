@@ -32,29 +32,32 @@ void identify( Base* p ) {
 	C* c = dynamic_cast<C*>(p);
 
 	if (a)
-		std::cout << "type of p: 'A'" << std::endl;
+		std::cout << "[ptr] type: 'A'" << std::endl;
 	else if (b)
-		std::cout << "type of p: 'B'" << std::endl;
+		std::cout << "[ptr] type: 'B'" << std::endl;
 	else if (c)
-		std::cout << "type of p: 'C'" << std::endl;
+		std::cout << "[ptr] type: 'C'" << std::endl;
 	else
 		std::cout << "Failed to cast" << std::endl;
 }
 
 void identify( Base& p ) {
 	try {
-		(void)dynamic_cast<A&>(p);
-		std::cout << "type of p: 'A'" << std::endl;
+		A& a = dynamic_cast<A&>(p);
+		(void)a;
+		std::cout << "[ref] type: 'A'" << std::endl;
 		return;
 	} catch(const std::bad_cast& e) { }
 	try {
-		(void)dynamic_cast<B&>(p);
-		std::cout << "type of p: 'B'" << std::endl;
+		B& b = dynamic_cast<B&>(p);
+		(void)b;
+		std::cout << "[ref] type: 'B'" << std::endl;
 		return;
 	} catch(const std::bad_cast& e) { }
 	try {
-		(void)dynamic_cast<C&>(p);
-		std::cout << "type of p: 'C'" << std::endl;
+		C& c = dynamic_cast<C&>(p);
+		(void)c;
+		std::cout << "[ref] type: 'C'" << std::endl;
 		return;
 	} catch(const std::bad_cast& e) { }
 	std::cerr << "Failed to cast" << std::endl;
