@@ -1,7 +1,7 @@
 NAME = convert
 
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 GREEN=\033[0;32m
 NC=\033[0m
@@ -11,7 +11,7 @@ SRC = main.cpp \
 	  utils.cpp \
 	  utils2.cpp
 
-HDRS = ScalarConverter.hpp
+HDRS = ScalarConverter.hpp utils.hpp
 
 OBJS = $(SRC:.cpp=.o)
 

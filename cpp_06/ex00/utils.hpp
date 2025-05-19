@@ -2,7 +2,6 @@
 #include <iostream>
 #include <cstdlib>
 #include <limits>
-#include <cmath>
 
 enum e_type {
 	CHAR ,
