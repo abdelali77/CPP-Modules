@@ -47,7 +47,6 @@ bool isDouble( std::string& str, size_t& len, size_t& dot ) {
 
 	if (dot <= start)
 		return false;
-
 	for (size_t i = start; i < dot; ++i) {
 		if (!isdigit(str[i]))
 			return false;
@@ -55,7 +54,6 @@ bool isDouble( std::string& str, size_t& len, size_t& dot ) {
 
 	if (dot + 1 >= len)
 		return false;
-
 	for (size_t i = dot + 1; i < len; ++i) {
 		if (!isdigit(str[i]))
 			return false;
