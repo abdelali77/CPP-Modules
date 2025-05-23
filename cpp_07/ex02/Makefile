@@ -7,7 +7,7 @@ GREEN=\033[0;32m
 NC=\033[0m
 
 SRC = main.cpp
-HDR = array.hpp
+HDR = Array.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
