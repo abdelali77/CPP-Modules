@@ -12,9 +12,4 @@ void iter(ARR *arr, size_t len, FUNC func) {
 		func(arr[i]);
 }
 
-template <typename U>
-void print(const U& element) {
-	std::cout << element << std::endl;
-}
-
 #endif
