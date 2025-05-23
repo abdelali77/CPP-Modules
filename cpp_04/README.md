@@ -4,7 +4,7 @@
 Subtype polymorphism is a mechanism in OOP where a reference variable of a supertype (e.g., a parent class or interface) can refer to an object of any of its subtypes (e.g., child classes or implementing classes). This allows code to work with objects at a general level while invoking specific behavior defined in the subtype, typically through method overriding or implementation.
 
 How It Works:
-![poly](https://media.discordapp.net/attachments/1102948634493984769/1363202050825126039/Polymorphism_Abstract_Classes_and_Interfaces_-_visual_selection.png?ex=68052c57&is=6803dad7&hm=72f549a1c481419446e23da8f91a6dfa27794aef9a00778e62742745836dc450&=&format=webp&quality=lossless&width=1416&height=912)
+![poly](https://media.discordapp.net/attachments/1102948634493984769/1363202050825126039/Polymorphism_Abstract_Classes_and_Interfaces_-_visual_selection.png?ex=6831ff57&is=6830add7&hm=06f597feff7fccba24306f3033f7ed5e34372378ad265b5bdaaf69fd8cf69f29&=&format=webp&quality=lossless&width=1416&height=912)
 
 * A supertype defines a contract (methods, properties, etc.).
 * Subtypes inherit or implement this contract, potentially overriding methods to provide specific behavior.
@@ -20,7 +20,7 @@ How It Works:
 
 An abstract class is a class that cannot be instantiated directly and is meant to serve as a blueprint for other classes. It may contain both concrete methods (with implementations) and abstract methods (without implementations, declared with the abstract keyword). Subclasses must extend the abstract class and provide implementations for its abstract methods.
 
-![poly](https://media.discordapp.net/attachments/1102948634493984769/1363202050275545230/Polymorphism_Abstract_Classes_and_Interfaces_-_visual_selection_1.png?ex=68052c57&is=6803dad7&hm=f4d570a7fa09e0a4a54b71077846148320c10954f4f4025129e8fde6b999c5e8&=&format=webp&quality=lossless&width=1704&height=794)
+![poly](https://media.discordapp.net/attachments/1102948634493984769/1363202050275545230/Polymorphism_Abstract_Classes_and_Interfaces_-_visual_selection_1.png?ex=6831ff57&is=6830add7&hm=7ae4be18c75ed636c829c68d4f782438a16ecfe866126f4f5e15b46d56cefba4&=&format=webp&quality=lossless&width=1704&height=794)
 
 How It Works:
 * It has at least a pure virtual function.
@@ -44,7 +44,7 @@ An interface in C++ is typically an abstract base class where:
 * The class cannot be instantiated directly due to its abstract nature.
 This mimics the role of interfaces in other languages: defining a contract that derived classes must implement, enabling polymorphism and loose coupling.
 
-![poly](https://media.discordapp.net/attachments/1102948634493984769/1363207322108956763/Polymorphism_Abstract_Classes_and_Interfaces_-_visual_selection_3.png?ex=68053140&is=6803dfc0&hm=ae7c2770c70e8341c9a9fad8527c21f3f8a8f8cd773cb7e891393d54d8696d99&=&format=webp&quality=lossless&width=1632&height=1164)
+![poly](https://media.discordapp.net/attachments/1102948634493984769/1363207322108956763/Polymorphism_Abstract_Classes_and_Interfaces_-_visual_selection_3.png?ex=68320440&is=6830b2c0&hm=e6738c694332f6b3a9318fe07cae44025c9c1bb5abfbc4edd3d46a045f88e2d6&=&format=webp&quality=lossless&width=1632&height=1164)
 
 #### How to Implement an Interface in C++
 To create an interface:
