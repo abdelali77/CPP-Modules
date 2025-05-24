@@ -29,7 +29,15 @@ Array<T>& Array<T>::operator=( const Array& other ) {
 
 template <class T>
 T& Array<T>::operator[]( unsigned int index ) {
-	if (index < 0 || index >= _size)
+	if (index >= _size)
+		throw std::out_of_range(std::string("Array: Out of Bounds"));
+	else
+		return this->arr[index];
+}
+
+template <class T>
+const T& Array<T>::operator[]( unsigned int index ) const {
+	if (index >= _size)
 		throw std::out_of_range(std::string("Array: Out of Bounds"));
 	else
 		return this->arr[index];
