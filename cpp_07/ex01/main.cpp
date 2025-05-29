@@ -10,9 +10,8 @@ void print( T& x )
 int main( void ) {
 	double arr[4] = {1.2, 2.4, 3.4, 4.4};
 	::iter(arr, 4, print<double>);
-	std::string stringArr[4] = {"sadam", "kadafi", "hasan2", "bachar"};	
-	::iter(stringArr, 4, print<std::string>);
+	std::string stringArr[3] = {"sadam", "kadafi", "hasan2"};	
+	::iter(stringArr, 3, print<std::string>);
 	int arr2[2] = {1337, 42};
 	::iter(arr2, 2, print<int>);
 }
-
