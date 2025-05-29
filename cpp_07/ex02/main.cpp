@@ -1,6 +1,3 @@
-#include <iostream>
-#include <ctime>
-#include <cstdlib>
 #include "Array.hpp"
 
 #define MAX_VAL 10
