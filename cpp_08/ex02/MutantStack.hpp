@@ -1,9 +1,10 @@
-#ifndef __MUTANSTACK_HPP__
-#define __MUTANSTACK_HPP__
+#ifndef __MUTANTSTACK_HPP__
+#define __MUTANTSTACK_HPP__
 
 #include <iostream>
 #include <stack>
 #include <deque>
+#include <list>
 
 // ************************************************************************** //
 //                             MutantStack Class                              //
@@ -11,13 +12,17 @@
 
 template <typename T, typename Container = std::deque<T> >
 
-class MutanStack : public std::stack<T> {
+class MutantStack : public std::stack<T, Container> {
 public:
-	MutanStack( void ) { }
-	MutanStack( const MutanStack& oth ) { (void)oth; }
-	MutanStack& operator=( const MutanStack& oth ) { (void)oth; return *this; }
+	MutantStack( void ) { }
+	MutantStack( const MutantStack& oth ) { (void)oth; }
+	MutantStack& operator=( const MutantStack& oth ) {
+		std::stack<T, Container>::operator=(oth);
+	}
 	
-	
+	typedef typename Container::iterator iterator;
+	iterator begin( ) { return this->c.begin(); }
+	iterator end( ) { return this->c.end(); }
 };
 
 #endif
