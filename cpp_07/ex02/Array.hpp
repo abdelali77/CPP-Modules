@@ -1,6 +1,14 @@
 #ifndef __ARRAY_HPP__
 #define __ARRAY_HPP__
 
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+
+// ************************************************************************** //
+//                                 Array Class                                //
+// ************************************************************************** //
+
 template <class T>
 class Array {
 private:
@@ -12,6 +20,7 @@ public:
 	Array( const Array& other );
 	Array& operator=( const Array& other );
 	T& operator[]( unsigned int index );
+	const T& operator[]( unsigned int index ) const;
 	unsigned int size( void ) const;
 
 	~Array();

@@ -1,9 +1,6 @@
-#include <iostream>
-#include <ctime>
-#include <cstdlib>
 #include "Array.hpp"
 
-#define MAX_VAL 750
+#define MAX_VAL 10
 int main(int, char**)
 {
 	Array<int> numbers(MAX_VAL);
@@ -50,6 +47,7 @@ int main(int, char**)
 	{
 		numbers[i] = rand();
 	}
+	std::cout << numbers.size() << std::endl;
 	delete [] mirror;//
 	return 0;
 }
