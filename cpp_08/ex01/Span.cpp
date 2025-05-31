@@ -39,10 +39,17 @@ int Span::shortestSpan( void ) {
 }
 
 void Span::addNumber( std::vector<int> sp ) {
-	span.insert(span.end(), sp.begin(), sp.end());
+	if (sp.size() > N)
+		throw std::out_of_range(std::string("Not enough space!"));
+	else
+		span.insert(span.end(), sp.begin(), sp.end());
 }
 
 int Span::longestSpan( void ) {
-	std::sort(span.begin(), span.end());
-	return (span[span.size() - 1] - span[0]);
+	if (span.size() < 2)
+		throw std::invalid_argument(std::string("Not enough Numbers"));
+	else {
+		std::sort(span.begin(), span.end());
+		return (span[span.size() - 1] - span[0]);
+	}
 }
