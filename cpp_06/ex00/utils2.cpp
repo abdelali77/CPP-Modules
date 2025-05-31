@@ -1,6 +1,6 @@
 #include "utils.hpp"
 
-void convertChar( std::string str ) {
+void convertChar( std::string& str ) {
 	char chr = str[1];
 	std::cout << "char: ";
 	if (isprint(chr))
@@ -12,7 +12,7 @@ void convertChar( std::string str ) {
 	std::cout << "double: " << static_cast<double>(chr) << ".0" << std::endl;
 }
 
-void convertSpecial( std::string str ) {
+void convertSpecial( std::string& str ) {
 	if (str == "nan" || str == "nanf") {
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
@@ -33,7 +33,7 @@ void convertSpecial( std::string str ) {
 	}
 }
 
-void convertInt( std::string str ) {
+void convertInt( std::string& str ) {
 	long num = std::atol(str.c_str());
 	std::cout << "char: ";
 	if (num < 0 || num > 127)
@@ -53,7 +53,7 @@ void convertInt( std::string str ) {
 	std::cout << "double: " << static_cast<double>(num) << ".0" << std::endl;
 }
 
-void convertFloat( std::string str ) {
+void convertFloat( std::string& str ) {
 	float num = std::atof(str.c_str());
 	std::cout << "char: ";
 	if (num < 0 || num > 127)
@@ -77,7 +77,7 @@ void convertFloat( std::string str ) {
 	std::cout << "double: " << static_cast<double>(num) << std::endl;
 }
 
-void convertDouble( std::string str ) {
+void convertDouble( std::string& str ) {
 	double num = std::atof(str.c_str());
 	std::cout << "char: ";
 	if (num < 0 || num > 127)
@@ -103,31 +103,4 @@ void convertDouble( std::string str ) {
 		std::cout << "impossible" << std::endl;
 	else
 		std::cout << num << std::endl;
-}
-
-void converters( std::string& str ) {
-	size_t len = str.length();
-	e_type type = find_type(str, len);
-
-	switch (type)
-	{
-	case CHAR:
-		convertChar(str);
-		break;
-	case SPECIAL:
-		convertSpecial(str);
-		break;
-	case INT:
-		convertInt(str);
-		break;
-	case FLOAT:
-		convertFloat(str);
-		break;
-	case DOUBLE:
-		convertDouble(str);
-		break;
-	default:
-		std::cout << "Invalid input" << std::endl;
-		break;
-	}
 }

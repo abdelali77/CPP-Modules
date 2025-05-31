@@ -13,4 +13,8 @@ enum e_type {
 };
 
 e_type find_type( std::string& str, size_t& len );
-void converters( std::string& str );
+void convertChar( std::string& str );
+void convertSpecial( std::string& str );
+void convertInt( std::string& str );
+void convertFloat( std::string& str );
+void convertDouble( std::string& str );
