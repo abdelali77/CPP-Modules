@@ -10,7 +10,7 @@
 //                             MutantStack Class                              //
 // ************************************************************************** //
 
-template <typename T, typename Container = std::deque<T> >
+template <typename T>
 
 class MutantStack : public std::stack<T> {
 public:
@@ -19,10 +19,12 @@ public:
 	MutantStack& operator=( const MutantStack& oth ) {
 		std::stack<T>::operator=(oth);
 	}
-	typedef typename Container::iterator iterator;
+	typedef typename std::deque<T>::iterator iterator;
 
 	iterator begin() { return this->c.begin(); }
 	iterator end() { return this->c.end(); }
+
+	~MutantStack() { }
 };
 
 #endif
