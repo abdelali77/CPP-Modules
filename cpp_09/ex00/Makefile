@@ -6,12 +6,13 @@ FLAGS := -Wall -Wextra -Werror -std=c++98
 GREEN=\033[0;32m
 NC=\033[0m
 
-SRC = BitcoinExchange.cpp
+SRC = main.cpp \
+	  BitcoinExchange.cpp
 HDR = BitcoinExchange.hpp
 
 OBJS = $(SRC:.cpp=.o)
 
-%.o:%.c $(HDR)
+%.o:%.cpp $(HDR)
 	@echo "$(GREEN)$<...$(NC)"
 	@$(CC) $(FLAGS) -c $< -o $@
 
