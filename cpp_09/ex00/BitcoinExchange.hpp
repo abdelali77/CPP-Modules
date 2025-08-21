@@ -7,9 +7,13 @@
 #include <map>
 #include <fstream>
 
+// ************************************************************************** //
+//                            BitcoinExchange Class                           //
+// ************************************************************************** //
+
 class BitcoinExchange {
 private:
-	static std::map<std::string, double> data;
+	static std::map<std::string, float> data;
 	static std::ifstream inputFile;
 
 	BitcoinExchange( void );
@@ -19,5 +23,7 @@ public:
 	static void initData( void );
 	static void parseInput( char *av );
 };
+
+bool	dateIsValid( std::string date );
 
 #endif
