@@ -2,7 +2,12 @@
 
 int main( int ac, char **av ) {
 	if (ac == 2) {
-		BitcoinExchange::initData();
+		try {
+			BitcoinExchange::initData();
+			BitcoinExchange::parseInput(av[1]);
+		} catch (std::exception& e) {
+			std::cout << e.what() << std::endl;
+		}
 	} else {
 		std::cerr << "Usage: ./btc [file]" << std::endl;
 	}
