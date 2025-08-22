@@ -24,6 +24,7 @@ public:
 	static void parseInput( char *av );
 };
 
-bool	dateIsValid( std::string date );
+bool dateIsValid( std::string& date );
+void checkErrors( std::ifstream& file, std::string& line );
 
 #endif

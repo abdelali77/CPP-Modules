@@ -29,7 +29,7 @@ void BitcoinExchange::initData( void ) {
 			std::string date;
 			float value;
 			date = line.substr(0, 10);
-			value = std::atol((line.substr(11, line.size() - 1)).c_str());
+			value = std::atof((line.substr(11, line.size() - 1)).c_str());
 			data[date] = value;
 		}
 	} else {
@@ -50,8 +50,22 @@ void BitcoinExchange::parseInput( char *av ) {
 					float value = std::atof(line.substr(13, line.length() - 1).c_str());
 					if (value < 0) {
 						std::cerr << "Error: not a positive number." << std::endl;
-					} if (value > 1000) {
+					} else if (value > 1000) {
 						std::cerr << "Error: too large a number." << std::endl;
+					} else {
+						std::map<std::string, float>::iterator it = data.find(date);
+						if (it != data.end()) {
+							std::cout << date << " => " << value << " = " << static_cast<float>(value * it->second) << std::endl;
+						}
+						else {
+							it = data.lower_bound(date);
+							if (it == data.begin())
+								std::cerr << "Error : Not a valid date => " << date << std::endl;
+							else {
+								--it;
+								std::cout << date << " => " << value << " = " << static_cast<float>(value * it->second) << std::endl;
+							}
+						}
 					}
 				} else {
 					std::cerr << "Error: Not a valid date => " << date << std::endl;
