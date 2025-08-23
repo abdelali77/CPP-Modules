@@ -19,6 +19,10 @@ BitcoinExchange& BitcoinExchange::operator=( const BitcoinExchange& oth ) {
 	return *this;
 }
 
+std::map<std::string, float> BitcoinExchange::getData( void ) {
+	return data;
+}
+
 void BitcoinExchange::initData( void ) {
 	std::ifstream csvFile;
 	std::string line;
@@ -56,8 +60,7 @@ void BitcoinExchange::parseInput( char *av ) {
 						std::map<std::string, float>::iterator it = data.find(date);
 						if (it != data.end()) {
 							std::cout << date << " => " << value << " = " << static_cast<float>(value * it->second) << std::endl;
-						}
-						else {
+						} else {
 							it = data.lower_bound(date);
 							if (it == data.begin())
 								std::cerr << "Error : Not a valid date => " << date << std::endl;

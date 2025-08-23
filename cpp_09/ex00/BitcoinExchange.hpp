@@ -22,9 +22,9 @@ private:
 public:
 	static void initData( void );
 	static void parseInput( char *av );
+	static std::map<std::string, float> getData( void );
 };
 
 bool dateIsValid( std::string& date );
-void checkErrors( std::ifstream& file, std::string& line );
 
 #endif
