@@ -6,7 +6,7 @@ int main( int ac, char **av ) {
 			BitcoinExchange::initData();
 			BitcoinExchange::parseInput(av[1]);
 		} catch (std::exception& e) {
-			std::cout << e.what() << std::endl;
+			std::cerr << e.what() << std::endl;
 		}
 	} else {
 		std::cerr << "Usage: ./btc [file]" << std::endl;
