@@ -19,9 +19,7 @@ BitcoinExchange& BitcoinExchange::operator=( const BitcoinExchange& oth ) {
 	return *this;
 }
 
-std::map<std::string, float> BitcoinExchange::getData( void ) {
-	return data;
-}
+BitcoinExchange::~BitcoinExchange() { }
 
 void BitcoinExchange::initData( void ) {
 	std::ifstream csvFile;

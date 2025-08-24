@@ -19,10 +19,10 @@ private:
 	BitcoinExchange( void );
 	BitcoinExchange( const BitcoinExchange& oth );
 	BitcoinExchange& operator=( const BitcoinExchange& oth );
+	~BitcoinExchange();
 public:
 	static void initData( void );
 	static void parseInput( char *av );
-	static std::map<std::string, float> getData( void );
 };
 
 bool dateIsValid( std::string& date );
