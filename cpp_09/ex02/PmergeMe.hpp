@@ -6,6 +6,9 @@
 #include <algorithm>
 #include <vector>
 #include <deque>
+#include <cctype>
+
+#define INT_MAX 2147483647
 
 // ************************************************************************** //
 //                               PmergeMe Class                               //
@@ -13,7 +16,16 @@
 
 class PmergeMe {
 private:
-	std::vector<int> vec;
+	static std::vector<int> vec;
+	static std::deque<int> deq;
+
+	PmergeMe( void );
+	PmergeMe( const PmergeMe& oth );
+	PmergeMe& operator=( const PmergeMe& oth );
+public:
+	static void init_data( int ac, char **av );
 };
+
+bool parseInput( int ac, char** av );
 
 #endif
