@@ -24,6 +24,7 @@ private:
 	PmergeMe& operator=( const PmergeMe& oth );
 public:
 	static void init_data( int ac, char **av );
+	static void sort( void );
 };
 
 bool parseInput( int ac, char** av );
