@@ -7,6 +7,7 @@ int main( int ac, char **av ) {
 	} else {
 		if (parseInput(ac, av)) {
 			PmergeMe::init_data(ac, av);
+			PmergeMe::sort();
 		} else {
 			std::cerr << "Error" << std::endl;
 		}
