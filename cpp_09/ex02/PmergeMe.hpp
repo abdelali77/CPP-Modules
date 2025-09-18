@@ -16,8 +16,8 @@
 
 class PmergeMe {
 private:
-	static std::vector<int> vec;
-	static std::deque<int> deq;
+	static std::vector<int> vecSeq;
+	static std::deque<int> deqSeq;
 
 	PmergeMe( void );
 	PmergeMe( const PmergeMe& oth );

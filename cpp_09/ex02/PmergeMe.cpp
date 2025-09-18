@@ -1,7 +1,7 @@
 #include "PmergeMe.hpp"
 
-std::vector<int> PmergeMe::vec;
-std::deque<int> PmergeMe::deq;
+std::vector<int> PmergeMe::vecSeq;
+std::deque<int> PmergeMe::deqSeq;
 
 PmergeMe::PmergeMe( void ) { }
 PmergeMe::PmergeMe( const PmergeMe& oth ) { (void)oth; }
@@ -22,11 +22,11 @@ bool parseInput( int ac, char **av ) {
 void PmergeMe::init_data( int ac, char **av ) {
 	for (int i = 1; i < ac; i++) {
 		int num = atoi(av[i]);
-		vec.push_back(num);
+		vecSeq.push_back(num);
 	}
 	for (int i = 1; i < ac; i++) {
 		int num = atoi(av[i]);
-		deq.push_back(num);
+		deqSeq.push_back(num);
 	}
 }
 
@@ -45,50 +45,49 @@ void print( std::vector<int>& vec ) {
 	<< " elements with std::vector : " << 0.0004 << " us" << std::endl;
 }
 
-std::vector<int> mergeSort( std::vector<int>& a ) {
-	if (a.size() == 1)
-		return a;
-	std::vector<int> halfOne;
-	std::vector<int> halfTwo;
-	std::vector<int> merged;
+std::vector<int> Jacobsthal( int n ) {
+	std::vector<int> seq;
 
-	for(size_t i = 0; i < a.size() / 2; i++)
-		halfOne.push_back(a[i]);
-	for(size_t i = (a.size() / 2); i < a.size(); i++)
-		halfTwo.push_back(a[i]);
+	int j0 = 0;
+	int j1 = 1;
+	
+	while( true ) {
+		int next = j1 + 2 * j0;
+		if (next > n)
+			break;
+		seq.push_back(next);
 
-	halfOne = mergeSort(halfOne);
-	halfTwo = mergeSort(halfTwo);
-
-	merged.resize(halfOne.size() + halfTwo.size());
-	std::merge(halfOne.begin(), halfOne.end(), halfTwo.begin(), halfTwo.end(), merged.begin());
-
-	return merged;
+		j0 = j1;
+		j1 = next;
+	}
+	return seq;
 }
+
+
 
 void PmergeMe::sort( void ) {
 	std::vector<int> a;
 	std::vector<int> b;
-	for (size_t i = 0; i < vec.size(); i += 2) {
-		if (i + 1 < vec.size()) {
-			int larger = std::max(vec[i], vec[i+1]);
-			int smaller = std::min(vec[i], vec[i+1]);
+	for (size_t i=0; i < vecSeq.size(); i+=2) {
+		if (i + 1 < vecSeq.size()) {
+			int larger = std::max(vecSeq[i], vecSeq[i+1]);
+			int smaller = std::min(vecSeq[i], vecSeq[i+1]);
 
 			a.push_back(larger);
 			b.push_back(smaller);
 		} else {
-			b.push_back(vec[i]);
+			b.push_back(vecSeq[i]);
 		}
 	}
-	// for(size_t i = 0; i < a.size(); i++)
-	// 	std::cout << a[i] << " ";
-	// std::cout << std::endl;
-	// for(size_t i = 0; i < b.size(); i++)
-	// 	std::cout << b[i] << " ";
-	// std::cout << std::endl;
-	a = mergeSort(a);
 	for(size_t i = 0; i < a.size(); i++)
 		std::cout << a[i] << " ";
 	std::cout << std::endl;
-	// print(vec);
+	for(size_t i = 0; i < b.size(); i++)
+		std::cout << b[i] << " ";
+	std::cout << std::endl;
+	// std::vector<int> JacobsthalIndexes = Jacobsthal(b.size());
+	// for(size_t i = 0; i < ret.size(); i++)
+	// 	std::cout << ret[i] << " ";
+	// std::cout << std::endl;
+	// print(vecSeq);
 }
