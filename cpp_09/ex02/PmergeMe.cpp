@@ -13,7 +13,7 @@ bool parseInput( int ac, char **av ) {
 			if (!isdigit(av[i][j]))
 				return false;
 		}
-		if (std::atoi(av[i]) < 0 || std::atoi(av[i]) > INT_MAX)
+		if (std::atoi(av[i]) < 0 || std::atoi(av[i]) > std::numeric_limits<int>::max())
 			return false;
 	}
 	return true;
@@ -63,31 +63,64 @@ std::vector<int> Jacobsthal( int n ) {
 	return seq;
 }
 
+std::vector<int> pairSeq( std::vector<int>& seq, std::vector<int>& a, std::vector<int>&b ) {
+	a.clear();b.clear();
 
-
-void PmergeMe::sort( void ) {
-	std::vector<int> a;
-	std::vector<int> b;
-	for (size_t i=0; i < vecSeq.size(); i+=2) {
-		if (i + 1 < vecSeq.size()) {
-			int larger = std::max(vecSeq[i], vecSeq[i+1]);
-			int smaller = std::min(vecSeq[i], vecSeq[i+1]);
+	for (size_t i=0; i < seq.size(); i+=2) {
+		if (i + 1 < seq.size()) {
+			int larger = std::max(seq[i], seq[i+1]);
+			int smaller = std::min(seq[i], seq[i+1]);
 
 			a.push_back(larger);
 			b.push_back(smaller);
 		} else {
-			b.push_back(vecSeq[i]);
+			b.push_back(seq[i]);
 		}
 	}
-	for(size_t i = 0; i < a.size(); i++)
-		std::cout << a[i] << " ";
-	std::cout << std::endl;
-	for(size_t i = 0; i < b.size(); i++)
-		std::cout << b[i] << " ";
-	std::cout << std::endl;
-	// std::vector<int> JacobsthalIndexes = Jacobsthal(b.size());
-	// for(size_t i = 0; i < ret.size(); i++)
-	// 	std::cout << ret[i] << " ";
-	// std::cout << std::endl;
-	// print(vecSeq);
+
+	return a;
+}
+
+void fordJohnson( std::vector<int>& a ) {
+	if (a.size() == 1) return;
+	if (a.size() == 2) {
+		if(a[0] > a[1]) std::swap(a[0], a[1]);
+		return;
+	}
+
+	std::vector<int> sub_a, sub_b;
+	pairSeq(a, sub_a, sub_b);
+	fordJohnson(sub_a);
+
+	a = sub_a;
+
+	// std::vector<int>tmp = a;
+	// a.clear();
+	// a.insert(a.end(), sub_a.begin(), sub_a.end());
+	// for (size_t i = 0; i < sub_a.size(); ++i)
+	// 	a.push_back(sub_b[i]);
+	
+	// for (size_t i = 1; i < a.size(); ++i) {
+    //     int key = a[i];
+    //     size_t j = i;
+    //     while (j > 0 && a[j - 1] > key) {
+    //         a[j] = a[j - 1];
+    //         --j;
+    //     }
+    //     a[j] = key;
+    // }
+}
+
+void PmergeMe::sort( void ) {
+	std::vector<int> a;
+	std::vector<int> b;
+
+	std::vector<int> sorted = pairSeq(vecSeq, a, b);
+	fordJohnson(a);
+
+	std::cout << "Larger (a, sorted): ";
+    for (size_t i = 0; i < a.size(); ++i) std::cout << a[i] << " ";
+    std::cout << "\nSmaller + Unpaired (b): ";
+    for (size_t i = 0; i < b.size(); ++i) std::cout << b[i] << " ";
+    std::cout << std::endl;
 }

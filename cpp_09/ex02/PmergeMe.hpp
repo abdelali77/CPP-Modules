@@ -7,8 +7,7 @@
 #include <vector>
 #include <deque>
 #include <cctype>
-
-#define INT_MAX 2147483647
+#include <limits>
 
 // ************************************************************************** //
 //                               PmergeMe Class                               //
