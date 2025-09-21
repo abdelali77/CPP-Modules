@@ -23,7 +23,7 @@ private:
 	PmergeMe& operator=( const PmergeMe& oth );
 public:
 	static void init_data( int ac, char **av );
-	static void sort( void );
+	static std::vector<int> fordJohnson( std::vector<int>& seq );
 };
 
 bool parseInput( int ac, char** av );
