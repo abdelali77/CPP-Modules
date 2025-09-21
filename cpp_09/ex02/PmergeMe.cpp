@@ -8,7 +8,7 @@ PmergeMe::PmergeMe( const PmergeMe& oth ) { (void)oth; }
 PmergeMe& PmergeMe::operator=( const PmergeMe& oth ) { (void)oth;return *this; }
 
 bool isNumber( std::string& num ) {
-	for (size_t i = 0; i < num.size(); i++)
+	for (size_t i=0; i<num.size(); i++)
 		if (!std::isdigit(num[i])) return false;
 	return true;
 }
@@ -17,7 +17,7 @@ bool parseInput( int ac, char **av ) {
 	std::string numArg;
 	long number;
 
-	for (int i = 1; i < ac; i++) {
+	for (int i=1; i<ac; i++) {
 		numArg = av[i];
 		number = std::strtol(numArg.c_str(), NULL, 10);
 		if (!numArg.size() || !isNumber(numArg) || number > std::numeric_limits<int>::max())
@@ -27,11 +27,11 @@ bool parseInput( int ac, char **av ) {
 }
 
 void PmergeMe::init_data( int ac, char **av ) {
-	for (int i = 1; i < ac; i++) {
+	for (int i=1; i<ac; i++) {
 		int num = atoi(av[i]);
 		vecSeq.push_back(num);
 	}
-	for (int i = 1; i < ac; i++) {
+	for (int i=1; i<ac; i++) {
 		int num = atoi(av[i]);
 		deqSeq.push_back(num);
 	}
@@ -57,7 +57,7 @@ void print( std::vector<int>& vec ) {
 std::vector<int> JacobsthalSeq( size_t size )
 {
 	std::vector<int> jacobSeq;
-	int prev2 = 0, prev1 = 1, curr = 0;
+	size_t prev2 = 0, prev1 = 1, curr = 0;
 	
 	jacobSeq.push_back(prev2);
 	if (size == 0) return jacobSeq;
@@ -84,19 +84,14 @@ std::vector<int> insertIndexes( size_t size ) {
 		++it;
 	}
 	
-	std::vector<int>::iterator it = indexes.begin();
-	while (it != indexes.end()) {
-		std::vector<int>::iterator check = indexes.begin();
-		while (check != it) {
-			if (*check == *it) {
-				it = indexes.erase(it);
-				--it;
-				break;
-			}
-			++check;
-		}
-		++it;
+	std::vector<int> uniqueIndexes;
+	std::vector<int>::iterator _it = indexes.begin();
+	while (_it != indexes.end()) {
+		if (std::find(uniqueIndexes.begin(), uniqueIndexes.end(), *_it) == uniqueIndexes.end())
+			uniqueIndexes.push_back(*_it);
+		++_it;
 	}
+	indexes = uniqueIndexes;
 
 	for(size_t i=0; i<size; i++) {
 		if (std::find(indexes.begin(), indexes.end(), i) == indexes.end())
@@ -112,7 +107,7 @@ std::vector<int> PmergeMe::fordJohnson( std::vector<int>& seq ) {
 	
 	std::vector<int> a,b,sorted;
 
-	for (size_t i=0; i < seq.size(); i+=2) {
+	for (size_t i=0; i<seq.size(); i+=2) {
 		if (i + 1 < seq.size()) {
 			int larger = std::max(seq[i], seq[i+1]);
 			int smaller = std::min(seq[i], seq[i+1]);
@@ -125,6 +120,21 @@ std::vector<int> PmergeMe::fordJohnson( std::vector<int>& seq ) {
 	}
 
 	sorted = fordJohnson(a);
+	
+	std::vector<int> indexes = insertIndexes(b.size());
 
+	for (size_t i=0; i<indexes.size(); ++i) {
+		std::vector<int>::iterator its = std::lower_bound(sorted.begin(), sorted.end(), b[indexes[i]]);
+		sorted.insert(its, b[indexes[i]]);
+	}
 
+	return sorted;
+}
+
+void PmergeMe::sort( void ) {
+	std::vector<int> sorted = PmergeMe::fordJohnson(vecSeq);
+
+	for(size_t i=0;i<sorted.size();i++)
+		std::cout << sorted[i] << " ";
+	std::cout << std::endl;
 }

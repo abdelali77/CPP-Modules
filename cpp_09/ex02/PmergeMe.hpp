@@ -24,6 +24,7 @@ private:
 public:
 	static void init_data( int ac, char **av );
 	static std::vector<int> fordJohnson( std::vector<int>& seq );
+	static void sort( void );
 };
 
 bool parseInput( int ac, char** av );
