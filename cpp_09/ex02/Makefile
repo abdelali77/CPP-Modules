@@ -7,7 +7,9 @@ GREEN=\033[0;32m
 NC=\033[0m
 
 SRCS = main.cpp \
-	   PmergeMe.cpp
+	   PmergeMe.cpp \
+	   deque.cpp \
+	   vector.cpp
 HDR = PmergeMe.hpp
 
 OBJS = $(SRCS:.cpp=.o)
