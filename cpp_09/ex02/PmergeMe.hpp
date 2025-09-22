@@ -8,6 +8,7 @@
 #include <deque>
 #include <cctype>
 #include <limits>
+#include <ctime>
 
 // ************************************************************************** //
 //                               PmergeMe Class                               //
@@ -23,10 +24,12 @@ private:
 	PmergeMe& operator=( const PmergeMe& oth );
 public:
 	static void init_data( int ac, char **av );
-	static std::vector<int> fordJohnson( std::vector<int>& seq );
 	static void sort( void );
+	static double getProcessTime( int v );
 };
 
 bool parseInput( int ac, char** av );
+std::deque<int> fordJohnsonDeq( std::deque<int>& seq );
+std::vector<int> fordJohnsonVec( std::vector<int>& seq );
 
 #endif
