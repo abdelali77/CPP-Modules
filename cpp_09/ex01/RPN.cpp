@@ -3,20 +3,15 @@
 std::stack<int> RPN::data;
 
 RPN::RPN( void ) { }
-
 RPN::RPN( const RPN& oth ) { (void)oth; }
-
 RPN& RPN::operator=( const RPN& oth ) {
 	(void)oth;
 	return *this;
 }
-
 RPN::~RPN() { }
 
 bool isOperator( std::string& op ) {
-	if (op == "*" || op == "+" || op == "-" || op == "/")
-		return true;
-	return false;
+	return (op == "*" || op == "+" || op == "-" || op == "/");
 }
 
 int RPN::calculate( std::string& expr ) {
@@ -24,9 +19,9 @@ int RPN::calculate( std::string& expr ) {
 	std::string token;
 
 	while(sstream >> token) {
-		if (token.length() == 1 && std::isdigit(token[0])) {
+		if (token.length() == 1 && std::isdigit(token[0]))
 			data.push(token[0] - '0');
-		} else if (isOperator(token)) {
+		else if (isOperator(token)) {
 			if (data.size() < 2)
 				throw std::runtime_error("InsufficientOperands!");
 			
@@ -39,9 +34,8 @@ int RPN::calculate( std::string& expr ) {
 				if (b == 0) throw std::runtime_error(std::string("DivisionByZero!"));
 				data.push(a / b);
 			}
-		} else {
+		} else
 			throw std::runtime_error(std::string("InvalidToken!"));
-		}
 	}
 	if (data.size() != 1)
 		throw std::runtime_error(std::string("InvalidExpression!"));

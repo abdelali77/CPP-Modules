@@ -12,5 +12,5 @@ int main( int ac, char **av ) {
 		}
 	} else {
 		std::cerr << "Usage: ./RPN [expression]" << std::endl;
-	}
+	}	
 }
