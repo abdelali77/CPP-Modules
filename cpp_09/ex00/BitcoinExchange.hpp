@@ -14,7 +14,6 @@
 class BitcoinExchange {
 private:
 	static std::map<std::string, float> data;
-	static std::ifstream inputFile;
 
 	BitcoinExchange( void );
 	BitcoinExchange( const BitcoinExchange& oth );
@@ -23,6 +22,7 @@ private:
 public:
 	static void initData( void );
 	static void parseInput( char *av );
+	static std::map<std::string, float> getData( void );
 };
 
 bool dateIsValid( std::string& date );
