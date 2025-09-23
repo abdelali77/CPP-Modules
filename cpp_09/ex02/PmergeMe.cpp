@@ -6,6 +6,7 @@ std::deque<int> PmergeMe::deqSeq;
 PmergeMe::PmergeMe( void ) { }
 PmergeMe::PmergeMe( const PmergeMe& oth ) { (void)oth; }
 PmergeMe& PmergeMe::operator=( const PmergeMe& oth ) { (void)oth;return *this; }
+PmergeMe::~PmergeMe() { }
 
 bool isNumber( std::string& num ) {
 	for (size_t i=0; i<num.size(); i++)
@@ -40,7 +41,7 @@ void PmergeMe::init_data( int ac, char **av ) {
 		std::cout << vecSeq[i] << " ";
 	std::cout << std::endl;
 }
-#include <unistd.h>
+
 double PmergeMe::getProcessTime( int v ) {
 	std::vector<int> vecSorted;
 	std::deque<int> deqSorted;

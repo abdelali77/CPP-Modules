@@ -22,6 +22,7 @@ private:
 	PmergeMe( void );
 	PmergeMe( const PmergeMe& oth );
 	PmergeMe& operator=( const PmergeMe& oth );
+	~PmergeMe();
 public:
 	static void init_data( int ac, char **av );
 	static void sort( void );

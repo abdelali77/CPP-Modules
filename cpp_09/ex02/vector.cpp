@@ -12,7 +12,7 @@ std::vector<int> JacobsthalSeqVec( size_t size )
 	while (true) {
 		curr = prev1 + 2 * prev2;
 		if (curr > size)
-		break;
+			break;
 		jacobSeq.push_back(curr);
 		prev2 = prev1;
 		prev1 = curr;
@@ -60,9 +60,8 @@ std::vector<int> fordJohnsonVec( std::vector<int>& seq ) {
 
 			a.push_back(larger);
 			b.push_back(smaller);
-		} else {
+		} else
 			b.push_back(seq[i]);
-		}
 	}
 
 	sorted = fordJohnsonVec(a);
@@ -70,8 +69,8 @@ std::vector<int> fordJohnsonVec( std::vector<int>& seq ) {
 	std::vector<int> indexes = insertIndexesVec(b.size());
 
 	for (size_t i=0; i<indexes.size(); ++i) {
-		std::vector<int>::iterator its = std::lower_bound(sorted.begin(), sorted.end(), b[indexes[i]]);
-		sorted.insert(its, b[indexes[i]]);
+		std::vector<int>::iterator _it = std::lower_bound(sorted.begin(), sorted.end(), b[indexes[i]]);
+		sorted.insert(_it, b[indexes[i]]);
 	}
 
 	return sorted;
