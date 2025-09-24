@@ -42,28 +42,35 @@ void PmergeMe::init_data( int ac, char **av ) {
 	std::cout << std::endl;
 }
 
+double calculateTime( timeval start, timeval end ) {
+	double duration = static_cast<double>(end.tv_sec - start.tv_sec) * 1000.0;
+	duration += static_cast<double>(end.tv_usec - start.tv_usec) / 1000.0;
+
+	return duration;
+} 
+
 double PmergeMe::getProcessTime( int v ) {
 	std::vector<int> vecSorted;
 	std::deque<int> deqSorted;
-	clock_t start = clock();
+
+	struct timeval start, end;
+	gettimeofday(&start, NULL);
 	if (!v) {
 		std::cout << "After: ";
 		vecSorted = fordJohnsonVec( vecSeq );
 	} else
 		deqSorted = fordJohnsonDeq( deqSeq );
-	clock_t end = clock();
+	gettimeofday(&end, NULL);
 
 	for(size_t i=0;i<vecSorted.size();i++)
 		std::cout << vecSorted[i] << " ";
 	std::cout << std::endl;
-	double duration = 1000.0 * (end - start) / CLOCKS_PER_SEC;
-
-	return duration;
+	
+	return calculateTime(start, end);
 }
 
 void PmergeMe::sort( void ) {
 	double vec_seq = getProcessTime( 0 );
-	(void)vec_seq;
 	double deq_seq = getProcessTime( 1 );
 	
 	std::cout << "Time to process a range of " << vecSeq.size() <<

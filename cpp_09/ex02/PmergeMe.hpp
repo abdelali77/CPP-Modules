@@ -8,7 +8,7 @@
 #include <deque>
 #include <cctype>
 #include <limits>
-#include <ctime>
+#include <sys/time.h>
 
 // ************************************************************************** //
 //                               PmergeMe Class                               //
