@@ -74,6 +74,7 @@ void BitcoinExchange::parseInput( char *av ) {
 			} else
 				std::cerr << "Error: bad input => " << line << std::endl;
 		}
+		file.close();
 	} else
 		throw std::runtime_error(std::string("Couldn'tOpenFile"));
 }

@@ -1,10 +1,19 @@
 #include "BitcoinExchange.hpp"
 
+bool isNumber( std::string& num ) {
+	for (size_t i=0; i<num.size(); i++)
+		if (!std::isdigit(num[i])) return false;
+	return true;
+}
+
 bool dateIsValid( std::string& date ) {
-	int year = std::atoi(date.substr(0, 4).c_str());
-	int month = std::atoi(date.substr(5, 7).c_str());
-	int day = std::atoi(date.substr(8, 10).c_str());
-	if (year > 2022 || month > 12 || day > 31)
+	std::string year = date.substr(0, 4);
+	std::string month = date.substr(5, 7);
+	std::string day = date.substr(8, 10);
+
+	if (!(isNumber(year) || isNumber(month) || isNumber(day)))
+		return false;
+	if (!(year.length() != 4 || month.length() != 2 || day.length() != 2))
 		return false;
 	return true;
 }
