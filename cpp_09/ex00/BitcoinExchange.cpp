@@ -13,18 +13,19 @@ BitcoinExchange::~BitcoinExchange() { }
 
 
 void BitcoinExchange::initData( void ) {
-	std::ifstream csvFile;
+	std::ifstream dataFile;
 	std::string line;
-	csvFile.open("./cpp_09/data.csv");
-	if (csvFile.is_open()) {
-		std::getline(csvFile, line);
-		while (std::getline(csvFile, line)) {
+	dataFile.open("./cpp_09/data.csv");
+	if (dataFile.is_open()) {
+		std::getline(dataFile, line);
+		while (std::getline(dataFile, line)) {
 			std::string date;
 			float value;
 			date = line.substr(0, 10);
 			value = std::atof((line.substr(11, line.size() - 1)).c_str());
 			data[date] = value;
 		}
+		dataFile.close();
 	} else {
 		throw std::runtime_error(std::string("Couldn'tOpenFile"));
 	}
@@ -65,8 +66,8 @@ void BitcoinExchange::parseInput( char *av ) {
 	if (file.is_open()) {
 		std::getline(file, line);
 		while ( std::getline(file, line) ) {
-			if (line.find('|') != std::string::npos) {
-				std::string date = line.substr(0, 10);
+			if (line.find(" | ") != std::string::npos) {
+				std::string date = line.substr(0, line.find(" | "));
 				if (dateIsValid(date))
 					processBtcTransaction(line, date);
 				else
