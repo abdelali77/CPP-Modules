@@ -11,13 +11,11 @@ bool dateIsValid( std::string& date ) {
 		return false;
 	if (date[4] != '-' || date[7] != '-')
 		return false;
-	std::string year = date.substr(0, 4);
+	// std::string year = date.substr(0, 4);
 	std::string month = date.substr(5, 2);
 	std::string day = date.substr(8, 2);
 
-	if (!isNumber(year) || !isNumber(month) || !isNumber(day))
-		return false;
-	if (year.length() != 4 || month.length() != 2 || day.length() != 2)
+	if (!isNumber(month) || !isNumber(day))
 		return false;
 	
 	int mn = std::atoi(month.c_str()), dy = std::atoi(day.c_str());

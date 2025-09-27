@@ -37,23 +37,32 @@ std::map<std::string, float> BitcoinExchange::getData( void ) {
 
 void processBtcTransaction( std::string& line, std::string& date ) {
 	std::map<std::string, float> data = BitcoinExchange::getData();
+	float val;
 
-	float value = std::atof(line.substr(13, line.length() - 1).c_str());
-	if (value < 0)
+	std::string value = line.substr(line.find(" | ") + 3);
+
+	std::stringstream stream(value);
+	stream >> val;
+
+	if (!stream.eof() || stream.fail()) {
+		std::cerr << "Error: bad input => " << line << std::endl;
+		return;
+	}
+	if (val < 0)
 		std::cerr << "Error: not a positive number." << std::endl;
-	else if (value > 1000)
+	else if (val > 1000)
 		std::cerr << "Error: too large a number." << std::endl;
 	else {
 		std::map<std::string, float>::iterator it = data.find(date);
 		if (it != data.end())
-			std::cout << date << " => " << value << " = " << static_cast<float>(value * it->second) << std::endl;
+			std::cout << date << " => " << val << " = " << static_cast<float>(val * it->second) << std::endl;
 		else {
 			it = data.lower_bound(date);
 			if (it == data.begin())
 				std::cerr << "Error : Not a valid date => " << date << std::endl;
 			else {
 				--it;
-				std::cout << date << " => " << value << " = " << static_cast<float>(value * it->second) << std::endl;
+				std::cout << date << " => " << val << " = " << static_cast<float>(val * it->second) << std::endl;
 			}
 		}
 	}
