@@ -15,10 +15,10 @@ bool isOperator( std::string& op ) {
 }
 
 int RPN::calculate( std::string& expr ) {
-	std::stringstream sstream(expr);
+	std::stringstream stream(expr);
 	std::string token;
 
-	while(sstream >> token) {
+	while(stream >> token) {
 		if (token.length() == 1 && std::isdigit(token[0]))
 			data.push(token[0] - '0');
 		else if (isOperator(token)) {
