@@ -59,7 +59,7 @@ void processBtcTransaction( std::string& line, std::string& date ) {
 		else {
 			it = data.lower_bound(date);
 			if (it == data.begin())
-				std::cerr << "Error : Not a valid date => " << date << std::endl;
+				std::cerr << "Error : Too early date => " << date << std::endl;
 			else {
 				--it;
 				std::cout << date << " => " << val << " = " << static_cast<float>(val * it->second) << std::endl;
